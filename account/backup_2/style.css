@@ -1,0 +1,979 @@
+/* ============================================
+   RESET
+============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+    background: #f4f6f8;
+    color: #222;
+}
+/* ============================================
+   HEADER
+============================================ */
+.main-header {
+    background:
+        linear-gradient(
+            135deg,
+            #1565c0,
+            #1976d2
+        );
+    color: white;
+    padding:
+        24px
+        30px;
+    box-shadow:
+        0 2px 8px
+        rgba(0, 0, 0, 0.12);
+}
+.main-header h1 {
+    font-size: 30px;
+    margin-bottom: 6px;
+}
+.main-header p {
+    font-size: 15px;
+    opacity: 0.9;
+}
+/* ============================================
+   MAIN
+============================================ */
+.dashboard-container {
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 24px;
+}
+/* ============================================
+   SECTION
+============================================ */
+.tables-section,
+.order-section {
+    background: white;
+    border-radius: 16px;
+    padding: 22px;
+    margin-bottom: 24px;
+    box-shadow:
+        0 3px 14px
+        rgba(0, 0, 0, 0.08);
+}
+/* ============================================
+   TITLE
+============================================ */
+.section-title-row,
+.order-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+.section-title-row h2,
+.order-header h2 {
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+.section-title-row p,
+.order-header p {
+    color: #777;
+    font-size: 14px;
+}
+/* ============================================
+   BUTTON CHUNG
+============================================ */
+button {
+    font-family: inherit;
+}
+.secondary-button {
+    border: none;
+    background: #eceff1;
+    color: #333;
+    padding:
+        10px
+        16px;
+    border-radius: 9px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.secondary-button:hover:not(:disabled) {
+    background: #dfe3e6;
+}
+.secondary-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+/* ============================================
+   DANH SÁCH BÀN
+============================================ */
+.tables-container {
+    display: grid;
+    grid-template-columns:
+        repeat(
+            auto-fill,
+            minmax(110px, 1fr)
+        );
+    gap: 14px;
+}
+/* Một bàn */
+.table-card {
+    position: relative;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    border:
+        2px solid
+        #e0e0e0;
+    border-radius: 14px;
+    background: white;
+    cursor: pointer;
+    transition:
+        0.2s;
+    user-select: none;
+}
+.table-card:hover {
+    transform:
+        translateY(-3px);
+    border-color:
+        #1976d2;
+    box-shadow:
+        0 5px 14px
+        rgba(0, 0, 0, 0.10);
+}
+/* Chữ Bàn */
+.table-card .table-label {
+    font-size: 14px;
+    color: #777;
+}
+/* Số bàn */
+.table-card .table-number {
+    font-size: 34px;
+    font-weight: bold;
+    color: #333;
+}
+/* Bàn đang có đơn */
+.table-card.has-order {
+    background: #fff8e1;
+    border-color: #ffb300;
+}
+/* Bàn được chọn */
+.table-card.selected {
+    background: #e3f2fd;
+    border-color: #1976d2;
+    box-shadow:
+        0 0 0 2px
+        rgba(25, 118, 210, 0.10);
+}
+.table-card.selected .table-number {
+    color: #1565c0;
+}
+/* Badge số món */
+.table-order-badge {
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    min-width: 25px;
+    height: 25px;
+    padding:
+        0
+        6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    background: #ff9800;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+}
+/* ============================================
+   CHƯA CHỌN BÀN
+============================================ */
+.empty-selection {
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #777;
+}
+.empty-icon {
+    font-size: 55px;
+    margin-bottom: 12px;
+}
+.empty-selection h3 {
+    color: #444;
+    margin-bottom: 8px;
+}
+.empty-selection p {
+    font-size: 14px;
+}
+/* ============================================
+   LOADING
+============================================ */
+.loading-box {
+    text-align: center;
+    padding: 50px;
+    color: #666;
+    font-size: 16px;
+}
+/* ============================================
+   ORDER CONTENT
+============================================ */
+.order-content {
+    width: 100%;
+}
+/* ============================================
+   HEADER DANH SÁCH MÓN
+============================================ */
+.order-item-header {
+    display: grid;
+    grid-template-columns:
+        minmax(170px, 1.35fr)
+        minmax(150px, 1.2fr)
+        145px
+        110px
+        125px
+        115px
+        120px
+        75px;
+    gap: 12px;
+    align-items: center;
+    padding:
+        13px
+        14px;
+    background: #eef2f5;
+    border-radius:
+        10px
+        10px
+        0
+        0;
+    font-size: 14px;
+    font-weight: bold;
+    color: #444;
+}
+/* ============================================
+   MỘT MÓN
+============================================ */
+.order-item-row {
+    display: grid;
+    grid-template-columns:
+        minmax(170px, 1.35fr)
+        minmax(150px, 1.2fr)
+        145px
+        110px
+        125px
+        115px
+        120px
+        75px;
+    gap: 12px;
+    align-items: center;
+    padding:
+        15px
+        14px;
+    border-bottom:
+        1px solid
+        #eee;
+    transition:
+        background 0.15s;
+}
+.order-item-row:hover {
+    background: #fafafa;
+}
+/* ============================================
+   TÊN MÓN
+============================================ */
+.food-name {
+    min-width: 0;
+}
+.food-name strong {
+    display: block;
+    font-size: 15px;
+    color: #222;
+    word-break: break-word;
+}
+/* ============================================
+   GHI CHÚ
+============================================ */
+.food-note {
+    min-width: 0;
+    padding:
+        7px
+        9px;
+    background: #fff8e1;
+    border-radius: 7px;
+    color: #795548;
+    font-size: 14px;
+    line-height: 1.4;
+    word-break: break-word;
+}
+.food-note.empty-note {
+    background: #f5f5f5;
+    color: #aaa;
+}
+/* ============================================
+   QUANTITY
+============================================ */
+.quantity-manager {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+.quantity-manager button {
+    width: 34px;
+    height: 34px;
+    border: none;
+    border-radius: 8px;
+    background: #1976d2;
+    color: white;
+    font-size: 19px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.quantity-manager button:hover:not(:disabled) {
+    background: #0d47a1;
+}
+.quantity-manager button:disabled {
+    background: #b0bec5;
+    cursor: not-allowed;
+}
+.quantity-value {
+    width: 38px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border:
+        1px solid
+        #ddd;
+    border-radius: 7px;
+    background: white;
+    font-weight: bold;
+}
+/* ============================================
+   GIÁ
+============================================ */
+.unit-price {
+    font-size: 14px;
+    white-space: nowrap;
+}
+.item-total {
+    color: #d32f2f;
+    font-size: 15px;
+    white-space: nowrap;
+}
+/* ============================================
+   ROBOT
+============================================ */
+.robot-assignment {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.robot-select {
+    width: 105px;
+    height: 36px;
+    padding: 0 8px;
+    border: 1px solid #cfd8dc;
+    border-radius: 8px;
+    background: white;
+    color: #333;
+    font-size: 13px;
+    cursor: pointer;
+    outline: none;
+}
+.robot-select:focus {
+    border-color: #1976d2;
+    box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.10);
+}
+.robot-dispatch-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.robot-dispatch-button {
+    min-width: 96px;
+    min-height: 36px;
+    padding: 7px 10px;
+    border: none;
+    border-radius: 8px;
+    background: #1976d2;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.robot-dispatch-button:hover:not(:disabled) {
+    background: #0d47a1;
+}
+.robot-dispatch-button.dispatched {
+    background: #43a047;
+}
+.robot-dispatch-button.dispatched:hover:not(:disabled) {
+    background: #2e7d32;
+}
+.robot-dispatch-button:disabled {
+    opacity: 0.65;
+    cursor: wait;
+}
+
+/* ============================================
+   DELIVERY
+============================================ */
+.delivery-status {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.delivered-button {
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 50%;
+    background: #e0e0e0;
+    color: #8a8a8a;
+    font-size: 21px;
+    font-weight: bold;
+    cursor: pointer;
+    transition:
+        0.2s;
+}
+/* Chưa giao */
+.delivered-button:hover {
+    background: #ccc;
+}
+/* Đã giao */
+.delivered-button.delivered {
+    background: #43a047;
+    color: white;
+}
+.delivered-button.delivered:hover {
+    background: #2e7d32;
+}
+/* ============================================
+   LABEL CHỈ HIỆN TRÊN MOBILE
+============================================ */
+.mobile-label {
+    display: none;
+}
+/* ============================================
+   KHÔNG CÓ MÓN
+============================================ */
+.no-items-message {
+    padding: 50px 20px;
+    text-align: center;
+    color: #777;
+    background: #fafafa;
+    border-radius:
+        0
+        0
+        10px
+        10px;
+}
+/* ============================================
+   FOOTER
+============================================ */
+.order-footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 30px;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top:
+        2px solid
+        #eee;
+}
+/* ============================================
+   TOTAL
+============================================ */
+.total-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 20px;
+}
+#tableTotal {
+    color: #d32f2f;
+    font-size: 24px;
+}
+/* ============================================
+   THANH TOÁN
+============================================ */
+.pay-button {
+    min-width: 170px;
+    padding:
+        14px
+        22px;
+    border: none;
+    border-radius: 10px;
+    background: #43a047;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.pay-button:hover:not(:disabled) {
+    background: #2e7d32;
+}
+.pay-button:disabled {
+    background: #bdbdbd;
+    cursor: not-allowed;
+}
+/* ============================================
+   TEXT
+============================================ */
+.center-text {
+    text-align: center;
+}
+/* ============================================
+   HIDDEN
+============================================ */
+.hidden {
+    display: none !important;
+}
+/* ============================================
+   TABLET
+============================================ */
+@media (max-width: 1100px) {
+    .order-item-header {
+        grid-template-columns:
+            minmax(150px, 1.2fr)
+            minmax(135px, 1fr)
+            130px
+            100px
+            115px
+            105px
+            110px
+            65px;
+        gap: 8px;
+    }
+    .order-item-row {
+        grid-template-columns:
+            minmax(150px, 1.2fr)
+            minmax(135px, 1fr)
+            130px
+            100px
+            115px
+            105px
+            110px
+            65px;
+        gap: 8px;
+    }
+}
+/* ============================================
+   MOBILE / TABLET NHỎ
+============================================ */
+@media (max-width: 850px) {
+    .dashboard-container {
+        padding: 14px;
+    }
+    .main-header {
+        padding:
+            20px
+            16px;
+    }
+    .main-header h1 {
+        font-size: 25px;
+    }
+    .tables-section,
+    .order-section {
+        padding: 16px;
+        border-radius: 12px;
+    }
+    /* Ẩn header dạng bảng */
+    .order-item-header {
+        display: none;
+    }
+    /* Mỗi món thành card */
+    .order-item-row {
+        display: grid;
+        grid-template-columns:
+            1fr;
+        gap: 12px;
+        margin-bottom: 14px;
+        padding: 16px;
+        border:
+            1px solid
+            #eee;
+        border-radius: 12px;
+        background: white;
+        box-shadow:
+            0 2px 8px
+            rgba(0, 0, 0, 0.06);
+    }
+    .order-item-row:hover {
+        background: white;
+    }
+    /* Label */
+    .mobile-label {
+        display: inline;
+        margin-right: 6px;
+        color: #555;
+        font-weight: bold;
+    }
+    /* Tên món */
+    .food-name strong {
+        display: inline;
+        font-size: 18px;
+    }
+    /* Ghi chú */
+    .food-note {
+        width: 100%;
+    }
+    /* Quantity */
+    .quantity-manager {
+        justify-content: flex-start;
+    }
+    /* Robot */
+    .robot-assignment,
+    .robot-dispatch-area {
+        justify-content: flex-start;
+    }
+    .robot-select {
+        width: 140px;
+    }
+
+    /* Giao */
+    .delivery-status {
+        justify-content: flex-start;
+    }
+    /* Footer */
+    .order-footer {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+    }
+    .total-area {
+        justify-content: space-between;
+    }
+    .pay-button {
+        width: 100%;
+    }
+}
+/* ============================================
+   MOBILE NHỎ
+============================================ */
+@media (max-width: 500px) {
+    .tables-container {
+        grid-template-columns:
+            repeat(
+                3,
+                1fr
+            );
+        gap: 9px;
+    }
+    .table-card {
+        min-height: 82px;
+        border-radius: 10px;
+    }
+    .table-card .table-number {
+        font-size: 28px;
+    }
+    .section-title-row,
+    .order-header {
+        align-items: flex-start;
+    }
+    .secondary-button {
+        padding:
+            9px
+            11px;
+        font-size: 13px;
+    }
+    #tableTotal {
+        font-size: 21px;
+    }
+}
+/* ============================================
+   MÀN HÌNH RẤT NHỎ
+============================================ */
+@media (max-width: 360px) {
+    .tables-container {
+        grid-template-columns:
+            repeat(
+                2,
+                1fr
+            );
+    }
+}
+/* ======================================================
+   PHẦN BỔ SUNG: NEW + ĐÃ NẤU + 9 CỘT
+====================================================== */
+
+/* Badge NEW màu xanh, vẫn giữ badge số món màu cam ở bên phải */
+.table-new-badge {
+    position: absolute;
+    top: 7px;
+    left: 7px;
+    padding: 4px 7px;
+    border-radius: 12px;
+    background: #1976d2;
+    color: white;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.4px;
+    box-shadow: 0 2px 7px rgba(25, 118, 210, 0.28);
+    animation: newBadgePulse 1.15s ease-in-out infinite alternate;
+}
+
+@keyframes newBadgePulse {
+    from {
+        transform: scale(1);
+        opacity: 0.82;
+    }
+    to {
+        transform: scale(1.06);
+        opacity: 1;
+    }
+}
+
+/* Cột trạng thái nấu */
+.cooking-status {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cooking-indicator {
+    width: 38px;
+    height: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 21px;
+    font-weight: bold;
+    user-select: none;
+    transition: 0.2s;
+}
+
+/* 0 - chưa nấu: xám */
+.cooking-indicator.waiting {
+    background: #e0e0e0;
+    color: #8a8a8a;
+}
+
+/* 1 - đang nấu: vàng */
+.cooking-indicator.cooking {
+    background: #f9a825;
+    color: white;
+    box-shadow: 0 0 0 3px rgba(249, 168, 37, 0.14);
+}
+
+/* 2 - đã nấu xong: xanh */
+.cooking-indicator.cooked {
+    background: #43a047;
+    color: white;
+}
+
+/* 9 cột trên desktop */
+@media (min-width: 1101px) {
+    .order-item-header,
+    .order-item-row {
+        grid-template-columns:
+            minmax(155px, 1.25fr)
+            minmax(135px, 1fr)
+            130px
+            105px
+            120px
+            90px
+            90px
+            112px
+            100px;
+        gap: 10px;
+    }
+}
+
+/* 9 cột trên tablet ngang */
+@media (min-width: 851px) and (max-width: 1100px) {
+    .order-content {
+        overflow-x: auto;
+    }
+
+    .order-item-header,
+    .order-item-row {
+        min-width: 1050px;
+        grid-template-columns:
+            145px
+            135px
+            125px
+            95px
+            112px
+            85px
+            85px
+            105px
+            95px;
+        gap: 8px;
+    }
+}
+
+/* Nút chuyển giao bị khóa trong 5 giây đầu */
+.robot-dispatch-button:disabled {
+    background: #bdbdbd;
+    color: #eeeeee;
+    opacity: 1;
+    cursor: not-allowed;
+}
+
+/* Mobile: cột trạng thái nấu canh trái giống các trường khác */
+@media (max-width: 850px) {
+    .cooking-status {
+        justify-content: flex-start;
+    }
+}
+
+/* ======================================================
+   CHỈNH SỬA MÓN: GHI CHÚ + SỐ LƯỢNG + UPDATE
+====================================================== */
+
+/* Thu hẹp cột Món ăn và khoảng cách sang Ghi chú */
+@media (min-width: 1101px) {
+    .order-item-header,
+    .order-item-row {
+        grid-template-columns:
+            minmax(125px, 180px)
+            minmax(180px, 1fr)
+            130px
+            105px
+            120px
+            90px
+            90px
+            112px
+            100px;
+        gap: 6px;
+    }
+}
+
+@media (min-width: 851px) and (max-width: 1100px) {
+    .order-item-header,
+    .order-item-row {
+        min-width: 1020px;
+        grid-template-columns:
+            145px
+            175px
+            125px
+            95px
+            112px
+            85px
+            85px
+            105px
+            95px;
+        gap: 6px;
+    }
+}
+
+/* Ghi chú trở thành ô nhập liệu */
+.food-note-editor {
+    min-width: 0;
+}
+
+.note-input {
+    width: 100%;
+    min-width: 0;
+    height: 36px;
+    padding: 7px 9px;
+    border: 1px solid #d9dee3;
+    border-radius: 7px;
+    background: #f7f7f7;
+    color: #444;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+    transition: 0.2s;
+}
+
+.note-input:focus {
+    background: white;
+    border-color: #1976d2;
+    box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.10);
+}
+
+.note-input.changed {
+    border-color: #1976d2;
+    background: #eef6ff;
+}
+
+/* Hàng có dữ liệu đang sửa nhưng chưa lưu */
+.order-item-row.dirty-row {
+    box-shadow: inset 3px 0 0 #1976d2;
+}
+
+/* Số lượng 0 = sẽ xóa khi bấm Update */
+.order-item-row.marked-for-delete {
+    background: #fff4f4;
+}
+
+.order-item-row.marked-for-delete:hover {
+    background: #fff0f0;
+}
+
+.quantity-value.zero-quantity {
+    color: #d32f2f;
+    border-color: #ef9a9a;
+    background: #ffebee;
+}
+
+/* Nhóm nút Update + Thanh toán */
+.order-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.save-changes-button {
+    min-width: 125px;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 10px;
+    background: #1976d2;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.save-changes-button:hover:not(:disabled) {
+    background: #0d47a1;
+}
+
+.save-changes-button:disabled {
+    background: #bdbdbd;
+    color: #eeeeee;
+    cursor: not-allowed;
+}
+
+@media (max-width: 850px) {
+    .food-note-editor {
+        width: 100%;
+    }
+
+    .note-input {
+        width: 100%;
+    }
+
+    .order-actions {
+        width: 100%;
+    }
+
+    .save-changes-button,
+    .pay-button {
+        flex: 1;
+        width: auto;
+    }
+}

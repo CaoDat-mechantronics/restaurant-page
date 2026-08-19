@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Quản Lý</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="main-header">
+        <div>
+            <h1>Quản Lý Đơn Hàng</h1>
+            <p>Theo dõi món ăn, trạng thái nấu, robot giao món và thanh toán</p>
+        </div>
+
+        <div id="connectionStatus" class="connection-status connecting">
+            Realtime: đang kết nối...
+        </div>
+    </header>
+
+    <main class="dashboard-container">
+        <section class="tables-section">
+            <div class="section-title-row">
+                <div>
+                    <h2>Danh sách bàn</h2>
+                    <p>Chọn bàn để xem đơn hàng</p>
+                </div>
+
+                <button
+                    type="button"
+                    id="refreshTablesButton"
+                    class="secondary-button"
+                >
+                    Làm mới
+                </button>
+            </div>
+
+            <div id="tablesContainer" class="tables-container"></div>
+        </section>
+
+        <section class="order-section">
+            <div class="order-header">
+                <div>
+                    <h2 id="selectedTableTitle">Chi tiết đơn hàng</h2>
+                    <p id="selectedTableDescription">Hãy chọn một bàn phía trên</p>
+                </div>
+
+                <button
+                    type="button"
+                    id="refreshOrderButton"
+                    class="secondary-button"
+                    disabled
+                >
+                    Cập nhật
+                </button>
+            </div>
+
+            <div id="pendingServerNotice" class="pending-server-notice hidden">
+                Có dữ liệu mới từ server. Hãy lưu hoặc hủy thay đổi hiện tại rồi bấm Cập nhật.
+            </div>
+
+            <div id="emptySelection" class="empty-selection">
+                <div class="empty-icon">🍽️</div>
+                <h3>Chưa chọn bàn</h3>
+                <p>Bấm vào một số bàn để xem các món đang được đặt.</p>
+            </div>
+
+            <div id="loadingBox" class="loading-box hidden">
+                Đang tải dữ liệu...
+            </div>
+
+            <div id="orderContent" class="order-content hidden">
+                <div class="order-table-scroll">
+                    <div class="order-item-header">
+                        <div>Món ăn</div>
+                        <div>Ghi chú</div>
+                        <div>Số lượng</div>
+                        <div>Đơn giá</div>
+                        <div>Thành tiền</div>
+                        <div class="center-text">Đã nấu</div>
+                        <div class="center-text">Đã giao</div>
+                        <div class="center-text">Robot</div>
+                        <div class="center-text">Chuyển giao</div>
+                    </div>
+
+                    <div id="orderItems"></div>
+                </div>
+
+                <div id="noItemsMessage" class="no-items-message hidden">
+                    Bàn này hiện không có món nào.
+                </div>
+
+                <div class="order-footer">
+                    <div class="total-area">
+                        <span>Tổng tiền:</span>
+                        <strong id="tableTotal">0 VNĐ</strong>
+                    </div>
+
+                    <div class="order-actions">
+                        <button
+                            type="button"
+                            id="saveChangesButton"
+                            class="save-changes-button"
+                            disabled
+                        >
+                            Update
+                        </button>
+
+                        <button
+                            type="button"
+                            id="payButton"
+                            class="pay-button"
+                            disabled
+                        >
+                            Thanh toán
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

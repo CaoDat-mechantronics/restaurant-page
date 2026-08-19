@@ -1,0 +1,499 @@
+/* ============================================
+   RESET
+============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+    background: #f5f6fa;
+    color: #222;
+}
+/* ============================================
+   HEADER
+============================================ */
+.header {
+    background:
+        linear-gradient(
+            135deg,
+            #ff7043,
+            #ff9800
+        );
+    color: white;
+    text-align: center;
+    padding: 28px 16px;
+}
+.header h1 {
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+.header p {
+    font-size: 16px;
+    opacity: 0.95;
+}
+/* ============================================
+   MAIN
+============================================ */
+.main-container {
+    display: grid;
+    grid-template-columns:
+        minmax(0, 1fr)
+        360px;
+    gap: 24px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 16px 24px 24px;
+}
+/* ============================================
+   KHU VỰC MENU
+============================================ */
+.menu-area {
+    width: 100%;
+    min-width: 0;
+}
+/* ============================================
+   SỐ BÀN
+============================================ */
+.table-number-top {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    gap: 8px;
+    padding:
+        6px
+        10px;
+    margin-bottom: 12px;
+    background: white;
+    border-radius: 9px;
+    box-shadow:
+        0 2px 8px
+        rgba(0, 0, 0, 0.10);
+}
+/* Chữ "Số bàn" */
+.table-number-top label {
+    font-size: 15px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+/* Input số bàn */
+#tableNumber {
+    width: 60px;
+    height: 34px;
+    border:
+        2px solid
+        #ff9800;
+    border-radius: 7px;
+    background:
+        #fff3e0;
+    color:
+        #e65100;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    outline: none;
+}
+/* Input readonly */
+#tableNumber:read-only {
+    cursor: default;
+}
+/* Ẩn nút tăng giảm mặc định của input number
+   trên Chrome, Edge, Cốc Cốc */
+#tableNumber::-webkit-inner-spin-button,
+#tableNumber::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+/* ============================================
+   DANH SÁCH MÓN
+============================================ */
+.menu-container {
+    display: grid;
+    grid-template-columns:
+        repeat(
+            auto-fill,
+            minmax(280px, 1fr)
+        );
+    gap: 20px;
+}
+/* ============================================
+   CARD MÓN ĂN
+============================================ */
+.food-card {
+    width: 100%;
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow:
+        0 4px 14px
+        rgba(0, 0, 0, 0.12);
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+}
+/* Hover */
+.food-card:hover {
+    transform:
+        translateY(-3px);
+    box-shadow:
+        0 6px 18px
+        rgba(0, 0, 0, 0.16);
+}
+/* Card đã chọn */
+.food-card.selected {
+    outline:
+        3px solid
+        #43a047;
+}
+/* ============================================
+   NỘI DUNG MÓN
+============================================ */
+.food-content {
+    padding: 16px;
+}
+/* ============================================
+   DÒNG TÊN MÓN
+============================================ */
+.food-title-row {
+    display: grid;
+    grid-template-columns:
+        24px
+        80px
+        minmax(0, 1fr);
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+/* Checkbox */
+.food-checkbox {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+/* Ảnh */
+.food-title-row img {
+    display: block;
+    width: 80px;
+    height: 55px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+/* Tên */
+.food-title-row h3 {
+    min-width: 0;
+    font-size: 18px;
+    line-height: 1.25;
+    word-break: normal;
+}
+/* ============================================
+   MÔ TẢ
+============================================ */
+.food-desc {
+    min-height: 40px;
+    margin-bottom: 10px;
+    color: #666;
+    font-size: 14px;
+    line-height: 1.5;
+}
+/* ============================================
+   GIÁ
+============================================ */
+.food-price {
+    margin-bottom: 14px;
+    color: #e53935;
+    font-size: 18px;
+    font-weight: bold;
+}
+/* ============================================
+   SỐ LƯỢNG
+============================================ */
+.quantity-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+/* Nút - + */
+.quantity-control button {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    background: #1976d2;
+    color: white;
+    font-size: 21px;
+    cursor: pointer;
+    transition:
+        background 0.2s;
+}
+.quantity-control button:hover {
+    background: #0d47a1;
+}
+/* Input quantity */
+.quantity-input {
+    width: 70px;
+    height: 40px;
+    border:
+        1px solid
+        #ccc;
+    border-radius: 9px;
+    font-size: 16px;
+    text-align: center;
+    outline: none;
+}
+/* ============================================
+   GHI CHÚ
+============================================ */
+.note-control {
+    width: 100%;
+}
+/* Label */
+.note-control label {
+    display: block;
+    margin-bottom: 6px;
+    color: #555;
+    font-size: 14px;
+    font-weight: bold;
+}
+/* Input */
+.note-input {
+    width: 100%;
+    height: 42px;
+    padding:
+        8px
+        10px;
+    border:
+        1px solid
+        #ccc;
+    border-radius: 9px;
+    font-size: 14px;
+    outline: none;
+}
+/* Focus */
+.note-input:focus {
+    border-color:
+        #1976d2;
+    box-shadow:
+        0 0 0 2px
+        rgba(25, 118, 210, 0.10);
+}
+/* ============================================
+   ĐƠN HÀNG
+============================================ */
+.order-summary {
+    width: 100%;
+    height: fit-content;
+    position: sticky;
+    top: 20px;
+    padding: 20px;
+    background: white;
+    border-radius: 16px;
+    box-shadow:
+        0 4px 14px
+        rgba(0, 0, 0, 0.12);
+}
+/* Tiêu đề */
+.order-summary h2 {
+    margin-bottom: 16px;
+    text-align: center;
+}
+/* ============================================
+   DANH SÁCH MÓN ĐÃ CHỌN
+============================================ */
+.selected-items {
+    min-height: 120px;
+    padding: 12px;
+    margin-bottom: 16px;
+    background: #f7f7f7;
+    border-radius: 12px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+/* Một món */
+.selected-item {
+    display: flex;
+    justify-content:
+        space-between;
+    align-items:
+        flex-start;
+    gap: 10px;
+    padding: 9px 0;
+    border-bottom:
+        1px dashed
+        #ddd;
+}
+.selected-item:last-child {
+    border-bottom: none;
+}
+/* Tên */
+.selected-item span {
+    flex: 1;
+    min-width: 0;
+    word-break:
+        break-word;
+}
+/* Giá */
+.selected-item strong {
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+/* ============================================
+   TỔNG TIỀN
+============================================ */
+.total-row {
+    display: flex;
+    justify-content:
+        space-between;
+    align-items:
+        center;
+    gap: 10px;
+    margin-bottom: 18px;
+    font-size: 20px;
+}
+#totalPrice {
+    color: #e53935;
+    text-align: right;
+}
+/* ============================================
+   NÚT ĐẶT MÓN
+============================================ */
+#orderButton {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    background: #43a047;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    transition:
+        background 0.2s;
+}
+#orderButton:hover {
+    background: #2e7d32;
+}
+/* ============================================
+   RESPONSIVE - TABLET
+============================================ */
+@media (max-width: 1024px) {
+    .main-container {
+        grid-template-columns:
+            1fr;
+    }
+    .order-summary {
+        position: static;
+    }
+}
+/* ============================================
+   RESPONSIVE - MOBILE
+============================================ */
+@media (max-width: 600px) {
+    /* HEADER */
+    .header {
+        padding:
+            28px
+            14px;
+    }
+    .header h1 {
+        font-size: 28px;
+    }
+    .header p {
+        font-size: 16px;
+    }
+    /* MAIN */
+    .main-container {
+        display: block;
+        padding:
+            0
+            14px
+            20px;
+    }
+    /* SỐ BÀN */
+    .table-number-top {
+        margin-top: -6px;
+        margin-bottom: 10px;
+        padding:
+            5px
+            8px;
+        border-radius: 8px;
+    }
+    .table-number-top label {
+        font-size: 14px;
+    }
+    #tableNumber {
+        width: 52px;
+        height: 31px;
+        font-size: 16px;
+    }
+    /* MENU */
+    .menu-container {
+        grid-template-columns:
+            1fr;
+        gap: 20px;
+    }
+    /* CARD */
+    .food-card {
+        border-radius: 16px;
+    }
+    .food-content {
+        padding: 18px;
+    }
+    /* TÊN MÓN */
+    .food-title-row {
+        grid-template-columns:
+            24px
+            72px
+            minmax(0, 1fr);
+        gap: 8px;
+    }
+    .food-title-row img {
+        width: 72px;
+        height: 52px;
+    }
+    .food-title-row h3 {
+        font-size: 18px;
+    }
+    /* ORDER */
+    .order-summary {
+        margin-top: 20px;
+        position: static;
+    }
+}
+/* ============================================
+   MÀN HÌNH RẤT NHỎ
+============================================ */
+@media (max-width: 380px) {
+    .main-container {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .food-content {
+        padding: 14px;
+    }
+    .food-title-row {
+        grid-template-columns:
+            22px
+            60px
+            minmax(0, 1fr);
+    }
+    .food-title-row img {
+        width: 60px;
+        height: 48px;
+    }
+    .food-title-row h3 {
+        font-size: 16px;
+    }
+    .quantity-control button {
+        width: 38px;
+        height: 38px;
+    }
+    .quantity-input {
+        width: 64px;
+        height: 38px;
+    }
+}
