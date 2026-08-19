@@ -2,11 +2,7 @@
 // CẤU HÌNH
 // ======================================================
 
-<<<<<<< HEAD
-const API_BASE_URL = "http://127.0.0.1:8000";
-=======
 const API_BASE_URL = "https://2dd9-2402-800-61ae-b947-a9b3-5783-f5a9-71bb.ngrok-free.app";
->>>>>>> d296218 (Initial frontend)
 const WS_BASE_URL = API_BASE_URL.replace(/^http/, "ws");
 const TOTAL_TABLES = 10;
 
@@ -25,8 +21,6 @@ let pendingServerReload = false;
 
 // Snapshot dữ liệu server theo từng bàn.
 // Nếu fetch lần sau giống snapshot cũ thì KHÔNG render lại.
-<<<<<<< HEAD
-=======
 async function apiFetch(path, options = {}) {
     const headers = new Headers(options.headers || {});
 
@@ -37,7 +31,6 @@ async function apiFetch(path, options = {}) {
         headers
     });
 }
->>>>>>> d296218 (Initial frontend)
 const previousServerSnapshots = new Map();
 
 // Snapshot trạng thái card bàn.
@@ -343,13 +336,8 @@ async function refreshTableStatuses(initial = false, silent = false) {
     }
 
     try {
-<<<<<<< HEAD
-        const response = await fetch(
-            `${API_BASE_URL}/orders/tables/status`,
-=======
         const response = await apiFetch(
             "/orders/tables/status",
->>>>>>> d296218 (Initial frontend)
             {
                 method: "GET",
                 cache: "no-store",
@@ -673,13 +661,8 @@ async function loadTableOrder(
     }
 
     try {
-<<<<<<< HEAD
-        const response = await fetch(
-            `${API_BASE_URL}/orders/table/${tableNumber}`,
-=======
         const response = await apiFetch(
             `/orders/table/${tableNumber}`,
->>>>>>> d296218 (Initial frontend)
             {
                 method: "GET",
                 cache: "no-store",
@@ -2426,13 +2409,8 @@ saveChangesButton.addEventListener(
 
                 try {
                     const response =
-<<<<<<< HEAD
-                        await fetch(
-                            `${API_BASE_URL}/orders/table/${selectedTableNumber}/items`,
-=======
                         await apiFetch(
                             `/orders/table/${selectedTableNumber}/items`,
->>>>>>> d296218 (Initial frontend)
                             {
                                 method:
                                     "PATCH",
@@ -2678,13 +2656,8 @@ async function dispatchToRobot(
 
     try {
         const response =
-<<<<<<< HEAD
-            await fetch(
-                `${API_BASE_URL}/order-items/${itemId}/robot-dispatch`,
-=======
             await apiFetch(
                 `/order-items/${itemId}/robot-dispatch`,
->>>>>>> d296218 (Initial frontend)
                 {
                     method:
                         "PATCH",
@@ -2755,13 +2728,8 @@ async function toggleDelivered(
 ) {
     try {
         const response =
-<<<<<<< HEAD
-            await fetch(
-                `${API_BASE_URL}/order-items/${itemId}/delivered`,
-=======
             await apiFetch(
                 `/order-items/${itemId}/delivered`,
->>>>>>> d296218 (Initial frontend)
                 {
                     method:
                         "PATCH",
@@ -2979,13 +2947,8 @@ payButton.addEventListener(
 
                 try {
                     const response =
-<<<<<<< HEAD
-                        await fetch(
-                            `${API_BASE_URL}/orders/table/${selectedTableNumber}`,
-=======
                         await apiFetch(
                             `/orders/table/${selectedTableNumber}`,
->>>>>>> d296218 (Initial frontend)
                             {
                                 method:
                                     "DELETE",
