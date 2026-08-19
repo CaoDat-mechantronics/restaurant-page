@@ -9,6 +9,7 @@
 // Ví dụ:
 // const DEFAULT_TABLE_NUMBER = 5;
 //
+const API_BASE_URL = "https://2dd9-2402-800-61ae-b947-a9b3-5783-f5a9-71bb.ngrok-free.app";
 const DEFAULT_TABLE_NUMBER = 9;
 // =============================================
 // LẤY CÁC PHẦN TỬ HTML
@@ -463,7 +464,7 @@ orderButton.addEventListener("click", async () => {
     try {
         const response =
             await fetch(
-                "http://127.0.0.1:8000/orders",
+                `${API_BASE_URL}/orders`,
                 {
                     method:
                         "POST",
@@ -590,7 +591,7 @@ orderButton.addEventListener("click", async () => {
         alert(
             "Không kết nối được tới FastAPI.\n"
             +
-            "Kiểm tra server http://127.0.0.1:8000"
+            "Kiểm tra server "
         );
     }
     finally {
