@@ -390,6 +390,245 @@ body {
     }
 }
 /* ============================================
+   DANH SÁCH MÓN BÀN ĐÃ ĐẶT
+============================================ */
+
+.ordered-foods-section {
+    margin-top: 22px;
+    padding-top: 18px;
+
+    border-top:
+        2px solid
+        #eeeeee;
+}
+
+
+/* ============================================
+   HEADER
+============================================ */
+
+.ordered-foods-header {
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 12px;
+}
+
+
+.ordered-foods-header h3 {
+    margin: 0;
+
+    font-size: 18px;
+
+    color:
+        #333;
+}
+
+
+#orderedFoodsCount {
+    flex-shrink: 0;
+
+    padding:
+        5px
+        10px;
+
+    border-radius: 20px;
+
+    background:
+        #fff3e0;
+
+    color:
+        #e65100;
+
+    font-size: 13px;
+
+    font-weight: bold;
+}
+
+
+/* ============================================
+   DANH SÁCH
+============================================ */
+
+.ordered-foods-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+
+/* ============================================
+   MỘT MÓN ĐÃ ĐẶT
+============================================ */
+
+.ordered-food-item {
+    padding: 12px;
+
+    border:
+        1px solid
+        #eeeeee;
+
+    border-radius: 12px;
+
+    background:
+        #fafafa;
+}
+
+
+/* Dòng trên */
+
+.ordered-food-main {
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        flex-start;
+
+    gap: 10px;
+}
+
+
+/* Thông tin món */
+
+.ordered-food-info {
+    flex: 1;
+
+    min-width: 0;
+}
+
+
+.ordered-food-name {
+    margin-bottom: 6px;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    color:
+        #222;
+
+    word-break:
+        break-word;
+}
+
+
+/* Số lượng */
+
+.ordered-food-quantity {
+    font-size: 13px;
+
+    color:
+        #666;
+}
+
+
+/* ============================================
+   BADGE TRẠNG THÁI
+============================================ */
+
+.food-status {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    padding:
+        5px
+        9px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    white-space: nowrap;
+}
+
+
+/* Đang nấu */
+
+.food-status.cooking {
+    background:
+        #fff3e0;
+
+    color:
+        #ef6c00;
+}
+
+
+/* Đã giao */
+
+.food-status.delivered {
+    background:
+        #e8f5e9;
+
+    color:
+        #2e7d32;
+}
+
+
+/* ============================================
+   GHI CHÚ MÓN
+============================================ */
+
+.ordered-food-note {
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top:
+        1px dashed
+        #dddddd;
+    color:
+        #777;
+    font-size: 12px;
+    line-height: 1.4;
+}
+/* ============================================
+   KHÔNG CÓ MÓN
+============================================ */
+.ordered-foods-empty {
+    padding:
+        18px
+        10px;
+
+    border-radius: 10px;
+
+    background:
+        #f7f7f7;
+
+    color:
+        #777;
+
+    font-size: 14px;
+
+    text-align: center;
+}
+/* ============================================
+   ĐANG LOAD
+============================================ */
+.ordered-foods-loading {
+    padding: 16px;
+    color:
+        #777;
+    font-size: 14px;
+    text-align: center;
+}
+
+
+/* ============================================
    RESPONSIVE - MOBILE
 ============================================ */
 @media (max-width: 600px) {
@@ -463,6 +702,27 @@ body {
         margin-top: 20px;
         position: static;
     }
+    .ordered-foods-section {
+        margin-top: 20px;
+    }
+    .ordered-foods-header h3 {
+        font-size: 17px;
+    }
+    .ordered-food-item {
+        padding: 11px;
+    }
+    .ordered-food-main {
+        align-items: center;
+    }
+    .ordered-food-name {
+        font-size: 15px;
+    }
+    .food-status {
+        font-size: 11px;
+        padding:
+            5px
+            8px;
+    }
 }
 /* ============================================
    MÀN HÌNH RẤT NHỎ
@@ -495,5 +755,18 @@ body {
     .quantity-input {
         width: 64px;
         height: 38px;
+    }
+    .ordered-food-main {
+        flex-direction: column;
+
+        align-items:
+            flex-start;
+    }
+    .food-status {
+        margin-top: 4px;
+    }
+    .ordered-foods-header {
+        align-items:
+            flex-start;
     }
 }

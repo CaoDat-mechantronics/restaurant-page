@@ -2,7 +2,7 @@
 // CẤU HÌNH
 // ======================================================
 
-const API_BASE_URL = "https://2dd9-2402-800-61ae-b947-a9b3-5783-f5a9-71bb.ngrok-free.app";
+const API_BASE_URL = "https://restaurant-api-t6pq.onrender.com";
 const WS_BASE_URL = API_BASE_URL.replace(/^http/, "ws");
 const TOTAL_TABLES = 10;
 
