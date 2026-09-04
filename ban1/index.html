@@ -6,17 +6,19 @@
         name="viewport"
         content="width=device-width, initial-scale=1.0"
     >
-    <title>Menu Điện Tử - dat.cao</title>
-    <!-- Kết nối CSS -->
+    <title>
+        Menu Điện Tử - dat.cao
+    </title>
+    <!-- CSS -->
     <link
         rel="stylesheet"
         href="style.css"
     >
 </head>
 <body>
-    <!-- =========================================
+    <!-- =====================================================
          HEADER
-    ========================================== -->
+    ====================================================== -->
     <header class="header">
         <h1>
             Menu Điện Tử - Nhà Hàng dat.cao
@@ -25,709 +27,743 @@
             Chọn món, số lượng và kiểm tra tổng tiền
         </p>
     </header>
-    <!-- =========================================
-         NỘI DUNG CHÍNH
-    ========================================== -->
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
     <main class="main-container">
-        <!-- =====================================
-             CỘT MENU BÊN TRÁI
-        ====================================== -->
-        <div class="menu-area">
-            <!-- =================================
-                 SỐ BÀN
-            ================================== -->
-            <div class="table-number-top">
-                <label for="tableNumber">
-                    Số bàn:
-                </label>
-                <input
-                    type="number"
-                    id="tableNumber"
-                    readonly
-                >
+        <!-- =================================================
+             SỐ BÀN
+        ================================================== -->
+        <div class="table-number-top">
+            <label for="tableNumber">
+                Số bàn:
+            </label>
+            <input
+                type="number"
+                id="tableNumber"
+                readonly
+            >
+        </div>
+        <!-- =================================================
+             THANH TAB
+        ================================================== -->
+        <div class="menu-tabs">
+            <!-- TAB GỌI MÓN -->
+            <button
+                type="button"
+                class="menu-tab active"
+                data-tab="newOrder"
+            >
+                Gọi món
+            </button>
+            <!-- TAB MÓN ĐÃ ĐẶT -->
+            <button
+                type="button"
+                class="menu-tab"
+                data-tab="ordered"
+            >
+                Món đã đặt
+                <span id="orderedTabCount">
+                    0
+                </span>
+            </button>
+        </div>
+        <!-- =================================================
+             TAB 1
+             GỌI MÓN MỚI
+        ================================================== -->
+        <div
+            id="newOrderTab"
+            class="tab-panel active"
+        >
+            <div class="order-layout">
+                <!-- =========================================
+                     MENU MÓN ĂN
+                ========================================== -->
+                <div class="menu-area">
+                    <section class="menu-container">
+                        <!-- =================================================
+                             MÓN 1 - PHỞ BÒ
+                        ================================================== -->
+                        <div
+                            class="food-card"
+                            data-name="Phở Bò"
+                            data-price="60000"
+                        >
+                            <div class="food-content">
+                                <div class="food-title-row">
+                                    <input
+                                        type="checkbox"
+                                        class="food-checkbox"
+                                    >
+                                    <img
+                                        src="../image/pho_bo.jpg"
+                                        alt="Phở Bò"
+                                    >
+                                    <h3>
+                                        Phở Bò
+                                    </h3>
+                                </div>
+                                <p class="food-desc">
+                                    Phở bò nóng, nước dùng đậm vị,
+                                    ăn kèm rau thơm.
+                                </p>
+                                <div class="food-price">
+                                    60.000 VNĐ
+                                </div>
+                                <div class="quantity-control">
+                                    <button
+                                        type="button"
+                                        class="btn-minus"
+                                    >
+                                        -
+                                    </button>
+                                    <input
+                                        type="number"
+                                        class="quantity-input"
+                                        value="1"
+                                        min="1"
+                                    >
+                                    <button
+                                        type="button"
+                                        class="btn-plus"
+                                    >
+                                        +
+                                    </button>
+                                </div>
+                                <div class="note-control">
+                                    <label>
+                                        Ghi chú
+                                    </label>
+                                    <input
+                                        type="text"
+                                        class="note-input"
+                                        placeholder="Ví dụ: không hành, ít cay..."
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                        <!-- =================================================
+                             MÓN 2 - BÚN BÒ HUẾ
+                        ================================================== -->
+                        <div
+                            class="food-card"
+                            data-name="Bún Bò Huế"
+                            data-price="70000"
+                        >
+                            <div class="food-content">
+                                <div class="food-title-row">
+                                    <input
+                                        type="checkbox"
+                                        class="food-checkbox"
+                                    >
+                                    <img
+                                        src="../image/bun_bo_hue.png"
+                                        alt="Bún Bò Huế"
+                                    >
+                                    <h3>
+                                        Bún Bò Huế
+                                    </h3>
+                                </div>
+                                <p class="food-desc">
+                                    Bún bò Huế cay nhẹ,
+                                    nước dùng thơm sả.
+                                </p>
+                                <div class="food-price">
+                                    70.000 VNĐ
+                                </div>
+                                <div class="quantity-control">
+                                    <button
+                                        type="button"
+                                        class="btn-minus"
+                                    >
+                                        -
+                                    </button>
+                                    <input
+                                        type="number"
+                                        class="quantity-input"
+                                        value="1"
+                                        min="1"
+                                    >
+                                    <button
+                                        type="button"
+                                        class="btn-plus"
+                                    >
+                                        +
+                                    </button>
+                                </div>
+                                <div class="note-control">
+                                    <label>
+                                        Ghi chú
+                                    </label>
+                                    <input
+                                        type="text"
+                                        class="note-input"
+                                        placeholder="Ví dụ: ít cay..."
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                        <!-- =================================================
+                             MÓN 3 - CƠM TẤM
+                        ================================================== -->
+                        <div
+                            class="food-card"
+                            data-name="Cơm Tấm"
+                            data-price="55000"
+                        >
+                            <div class="food-content">
+                                <div class="food-title-row">
+                                    <input
+                                        type="checkbox"
+                                        class="food-checkbox"
+                                    >
+                                    <img
+                                        src="../image/com_tam.jpg"
+                                        alt="Cơm Tấm"
+                                    >
+                                    <h3>
+                                        Cơm Tấm
+                                    </h3>
+                                </div>
+                                <p class="food-desc">
+                                    Cơm tấm sườn nướng,
+                                    bì, chả và nước mắm.
+                                </p>
+                                <div class="food-price">
+                                    55.000 VNĐ
+                                </div>
+                                <div class="quantity-control">
+                                    <button
+                                        type="button"
+                                        class="btn-minus"
+                                    >
+                                        -
+                                    </button>
+                                    <input
+                                        type="number"
+                                        class="quantity-input"
+                                        value="1"
+                                        min="1"
+                                    >
+                                    <button
+                                        type="button"
+                                        class="btn-plus"
+                                    >
+                                        +
+                                    </button>
+                                </div>
+                                <div class="note-control">
+                                    <label>
+                                        Ghi chú
+                                    </label>
+                                    <input
+                                        type="text"
+                                        class="note-input"
+                                        placeholder="Ví dụ: thêm cơm..."
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                        <!-- =================================================
+                             MÓN 4 - BÁNH MÌ CHẢO
+                        ================================================== -->
+                        <div
+                            class="food-card"
+                            data-name="Bánh Mì Chảo"
+                            data-price="30000"
+                        >
+                            <div class="food-content">
+                                <div class="food-title-row">
+                                    <input
+                                        type="checkbox"
+                                        class="food-checkbox"
+                                    >
+                                    <img
+                                        src="../image/banh_mi_chao.jpg"
+                                        alt="Bánh Mì Chảo"
+                                    >
+                                    <h3>
+                                        Bánh Mì Chảo
+                                    </h3>
+                                </div>
+                                <p class="food-desc">
+                                    Bánh mì giòn, nhân thịt,
+                                    pate, rau và nước sốt.
+                                </p>
+                                <div class="food-price">
+                                    30.000 VNĐ
+                                </div>
+                                <div class="quantity-control">
+                                    <button
+                                        type="button"
+                                        class="btn-minus"
+                                    >
+                                        -
+                                    </button>
+                                    <input
+                                        type="number"
+                                        class="quantity-input"
+                                        value="1"
+                                        min="1"
+                                    >
+                                    <button
+                                        type="button"
+                                        class="btn-plus"
+                                    >
+                                        +
+                                    </button>
+                                </div>
+                                <div class="note-control">
+                                    <label>
+                                        Ghi chú
+                                    </label>
+                                    <input
+                                        type="text"
+                                        class="note-input"
+                                        placeholder="Ví dụ: không pate..."
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                        <!-- =================================================
+                             MÓN 5 - MÌ QUẢNG
+                        ================================================== -->
+                        <div
+                            class="food-card"
+                            data-name="Mì Quảng"
+                            data-price="65000"
+                        >
+                            <div class="food-content">
+                                <div class="food-title-row">
+                                    <input
+                                        type="checkbox"
+                                        class="food-checkbox"
+                                    >
+                                    <img
+                                        src="../image/mi_quang.jpg"
+                                        alt="Mì Quảng"
+                                    >
+                                    <h3>
+                                        Mì Quảng
+                                    </h3>
+                                </div>
+                                <p class="food-desc">
+                                    Mì Quảng đậm đà,
+                                    ăn kèm bánh tráng và rau sống.
+                                </p>
+                                <div class="food-price">
+                                    65.000 VNĐ
+                                </div>
+                                <div class="quantity-control">
+                                    <button
+                                        type="button"
+                                        class="btn-minus"
+                                    >
+                                        -
+                                    </button>
+                                    <input
+                                        type="number"
+                                        class="quantity-input"
+                                        value="1"
+                                        min="1"
+                                    >
+                                    <button
+                                        type="button"
+                                        class="btn-plus"
+                                    >
+                                        +
+                                    </button>
+                                </div>
+                                <div class="note-control">
+                                    <label>
+                                        Ghi chú
+                                    </label>
+                                    <input
+                                        type="text"
+                                        class="note-input"
+                                        placeholder="Ví dụ: không rau..."
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                        <!-- =================================================
+                             MÓN 6 - PIZZA HẢI SẢN
+                        ================================================== -->
+                        <div
+                            class="food-card"
+                            data-name="Pizza Hải Sản"
+                            data-price="150000"
+                        >
+                            <div class="food-content">
+                                <div class="food-title-row">
+                                    <input
+                                        type="checkbox"
+                                        class="food-checkbox"
+                                    >
+                                    <img
+                                        src="../image/pizza_hai_san.png"
+                                        alt="Pizza Hải Sản"
+                                    >
+                                    <h3>
+                                        Pizza Hải Sản
+                                    </h3>
+                                </div>
+                                <p class="food-desc">
+                                    Pizza hải sản phô mai,
+                                    đế giòn, sốt cà chua.
+                                </p>
+                                <div class="food-price">
+                                    150.000 VNĐ
+                                </div>
+                                <div class="quantity-control">
+                                    <button
+                                        type="button"
+                                        class="btn-minus"
+                                    >
+                                        -
+                                    </button>
+                                    <input
+                                        type="number"
+                                        class="quantity-input"
+                                        value="1"
+                                        min="1"
+                                    >
+                                    <button
+                                        type="button"
+                                        class="btn-plus"
+                                    >
+                                        +
+                                    </button>
+                                </div>
+                                <div class="note-control">
+                                    <label>
+                                        Ghi chú
+                                    </label>
+                                    <input
+                                        type="text"
+                                        class="note-input"
+                                        placeholder="Ví dụ: thêm phô mai..."
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                        <!-- =================================================
+                             MÓN 7 - BÚN CHẢ
+                        ================================================== -->
+                        <div
+                            class="food-card"
+                            data-name="Bún Chả"
+                            data-price="45000"
+                        >
+                            <div class="food-content">
+                                <div class="food-title-row">
+                                    <input
+                                        type="checkbox"
+                                        class="food-checkbox"
+                                    >
+                                    <img
+                                        src="../image/bun_cha.jpg"
+                                        alt="Bún Chả"
+                                    >
+                                    <h3>
+                                        Bún Chả
+                                    </h3>
+                                </div>
+                                <p class="food-desc">
+                                    Bún chả Hà Nội,
+                                    thơm ngon, đậm vị.
+                                </p>
+                                <div class="food-price">
+                                    45.000 VNĐ
+                                </div>
+                                <div class="quantity-control">
+                                    <button
+                                        type="button"
+                                        class="btn-minus"
+                                    >
+                                        -
+                                    </button>
+                                    <input
+                                        type="number"
+                                        class="quantity-input"
+                                        value="1"
+                                        min="1"
+                                    >
+                                    <button
+                                        type="button"
+                                        class="btn-plus"
+                                    >
+                                        +
+                                    </button>
+                                </div>
+                                <div class="note-control">
+                                    <label>
+                                        Ghi chú
+                                    </label>
+                                    <input
+                                        type="text"
+                                        class="note-input"
+                                        placeholder="Ví dụ: thêm nước chấm..."
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                        <!-- =================================================
+                             MÓN 8 - GỎI CUỐN
+                        ================================================== -->
+                        <div
+                            class="food-card"
+                            data-name="Gỏi Cuốn"
+                            data-price="45000"
+                        >
+                            <div class="food-content">
+                                <div class="food-title-row">
+                                    <input
+                                        type="checkbox"
+                                        class="food-checkbox"
+                                    >
+                                    <img
+                                        src="../image/goi_cuon.jpg"
+                                        alt="Gỏi Cuốn"
+                                    >
+                                    <h3>
+                                        Gỏi Cuốn
+                                    </h3>
+                                </div>
+                                <p class="food-desc">
+                                    Gỏi cuốn tôm thịt,
+                                    rau tươi, chấm sốt đậu phộng.
+                                </p>
+                                <div class="food-price">
+                                    45.000 VNĐ
+                                </div>
+                                <div class="quantity-control">
+                                    <button
+                                        type="button"
+                                        class="btn-minus"
+                                    >
+                                        -
+                                    </button>
+                                    <input
+                                        type="number"
+                                        class="quantity-input"
+                                        value="1"
+                                        min="1"
+                                    >
+                                    <button
+                                        type="button"
+                                        class="btn-plus"
+                                    >
+                                        +
+                                    </button>
+                                </div>
+                                <div class="note-control">
+                                    <label>
+                                        Ghi chú
+                                    </label>
+                                    <input
+                                        type="text"
+                                        class="note-input"
+                                        placeholder="Ví dụ: không rau..."
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                        <!-- =================================================
+                             MÓN 9 - TRÀ SỮA
+                        ================================================== -->
+                        <div
+                            class="food-card"
+                            data-name="Trà Sữa"
+                            data-price="35000"
+                        >
+                            <div class="food-content">
+                                <div class="food-title-row">
+                                    <input
+                                        type="checkbox"
+                                        class="food-checkbox"
+                                    >
+                                    <img
+                                        src="../image/tra_sua.jpg"
+                                        alt="Trà Sữa"
+                                    >
+                                    <h3>
+                                        Trà Sữa
+                                    </h3>
+                                </div>
+                                <p class="food-desc">
+                                    Trà sữa thơm béo,
+                                    có topping trân châu.
+                                </p>
+                                <div class="food-price">
+                                    35.000 VNĐ
+                                </div>
+                                <div class="quantity-control">
+                                    <button
+                                        type="button"
+                                        class="btn-minus"
+                                    >
+                                        -
+                                    </button>
+                                    <input
+                                        type="number"
+                                        class="quantity-input"
+                                        value="1"
+                                        min="1"
+                                    >
+                                    <button
+                                        type="button"
+                                        class="btn-plus"
+                                    >
+                                        +
+                                    </button>
+                                </div>
+                                <div class="note-control">
+                                    <label>
+                                        Ghi chú
+                                    </label>
+                                    <input
+                                        type="text"
+                                        class="note-input"
+                                        placeholder="Ví dụ: ít đá, ít đường..."
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                        <!-- =================================================
+                             MÓN 10 - CÀ PHÊ SỮA
+                        ================================================== -->
+                        <div
+                            class="food-card"
+                            data-name="Cà Phê Sữa"
+                            data-price="30000"
+                        >
+                            <div class="food-content">
+                                <div class="food-title-row">
+                                    <input
+                                        type="checkbox"
+                                        class="food-checkbox"
+                                    >
+                                    <img
+                                        src="../image/ca_phe_sua.jpg"
+                                        alt="Cà Phê Sữa"
+                                    >
+                                    <h3>
+                                        Cà Phê Sữa
+                                    </h3>
+                                </div>
+                                <p class="food-desc">
+                                    Cà phê sữa đá đậm vị,
+                                    phù hợp dùng sau bữa ăn.
+                                </p>
+                                <div class="food-price">
+                                    30.000 VNĐ
+                                </div>
+                                <div class="quantity-control">
+                                    <button
+                                        type="button"
+                                        class="btn-minus"
+                                    >
+                                        -
+                                    </button>
+                                    <input
+                                        type="number"
+                                        class="quantity-input"
+                                        value="1"
+                                        min="1"
+                                    >
+                                    <button
+                                        type="button"
+                                        class="btn-plus"
+                                    >
+                                        +
+                                    </button>
+                                </div>
+                                <div class="note-control">
+                                    <label>
+                                        Ghi chú
+                                    </label>
+                                    <input
+                                        type="text"
+                                        class="note-input"
+                                        placeholder="Ví dụ: ít sữa..."
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <!-- =========================================
+                     ĐƠN HÀNG ĐANG CHỌN
+                ========================================== -->
+                <aside class="order-summary">
+                    <h2>
+                        Đơn hàng
+                    </h2>
+                    <!-- DANH SÁCH ĐANG CHỌN -->
+                    <div
+                        id="selectedItems"
+                        class="selected-items"
+                    >
+                        Chưa chọn món nào.
+                    </div>
+                    <!-- TỔNG TIỀN -->
+                    <div class="total-row">
+                        <span>
+                            Tổng tiền:
+                        </span>
+                        <strong id="totalPrice">
+                            0 VNĐ
+                        </strong>
+                    </div>
+                    <!-- NÚT ĐẶT MÓN -->
+                    <button
+                        type="button"
+                        id="orderButton"
+                    >
+                        Đặt món
+                    </button>
+                </aside>
             </div>
-            <!-- =================================
-                 DANH SÁCH MÓN
-            ================================== -->
-            <section class="menu-container">
-                <!-- =============================
-                     MÓN 1 - PHỞ BÒ
-                ============================== -->
-                <div
-                    class="food-card"
-                    data-name="Phở Bò"
-                    data-price="60000"
-                >
-                    <div class="food-content">
-                        <div class="food-title-row">
-                            <input
-                                type="checkbox"
-                                class="food-checkbox"
-                            >
-                            <img
-                                src="../image/pho_bo.jpg"
-                                alt="Phở Bò"
-                            >
-                            <h3>
-                                Phở Bò
-                            </h3>
-                        </div>
-                        <p class="food-desc">
-                            Phở bò nóng, nước dùng đậm vị,
-                            ăn kèm rau thơm.
-                        </p>
-                        <div class="food-price">
-                            60.000 VNĐ
-                        </div>
-                        <!-- SỐ LƯỢNG -->
-                        <div class="quantity-control">
-                            <button
-                                type="button"
-                                class="btn-minus"
-                            >
-                                -
-                            </button>
-                            <input
-                                type="number"
-                                class="quantity-input"
-                                value="1"
-                                min="1"
-                            >
-                            <button
-                                type="button"
-                                class="btn-plus"
-                            >
-                                +
-                            </button>
-                        </div>
-                        <!-- GHI CHÚ -->
-                        <div class="note-control">
-                            <label>
-                                Ghi chú
-                            </label>
-                            <input
-                                type="text"
-                                class="note-input"
-                                placeholder="Ví dụ: không hành, ít cay..."
-                            >
-                        </div>
-                    </div>
+        </div>
+        <!-- =================================================
+             TAB 2
+             MÓN BÀN ĐÃ ĐẶT
+        ================================================== -->
+        <div
+            id="orderedTab"
+            class="tab-panel"
+        >
+            <section class="ordered-foods-section">
+                <!-- =========================================
+                     HEADER TAB MÓN ĐÃ ĐẶT
+                ========================================== -->
+                <div class="ordered-foods-header">
+                    <h2>
+                        Món bàn đã đặt
+                    </h2>
+                    <span id="orderedFoodsCount">
+                        0 phần
+                    </span>
                 </div>
-                <!-- =============================
-                     MÓN 2 - BÚN BÒ HUẾ
-                ============================== -->
+                <!-- =========================================
+                     DANH SÁCH MÓN ĐÃ ĐẶT
+                ========================================== -->
                 <div
-                    class="food-card"
-                    data-name="Bún Bò Huế"
-                    data-price="70000"
+                    id="orderedFoodsList"
+                    class="ordered-foods-list"
                 >
-                    <div class="food-content">
-                        <div class="food-title-row">
-                            <input
-                                type="checkbox"
-                                class="food-checkbox"
-                            >
-                            <img
-                                src="../image/bun_bo_hue.png"
-                                alt="Bún Bò Huế"
-                            >
-                            <h3>
-                                Bún Bò Huế
-                            </h3>
-                        </div>
-                        <p class="food-desc">
-                            Bún bò Huế cay nhẹ,
-                            nước dùng thơm sả.
-                        </p>
-                        <div class="food-price">
-                            70.000 VNĐ
-                        </div>
-                        <div class="quantity-control">
-                            <button
-                                type="button"
-                                class="btn-minus"
-                            >
-                                -
-                            </button>
-                            <input
-                                type="number"
-                                class="quantity-input"
-                                value="1"
-                                min="1"
-                            >
-                            <button
-                                type="button"
-                                class="btn-plus"
-                            >
-                                +
-                            </button>
-                        </div>
-                        <div class="note-control">
-                            <label>
-                                Ghi chú
-                            </label>
-                            <input
-                                type="text"
-                                class="note-input"
-                                placeholder="Ví dụ: ít cay..."
-                            >
-                        </div>
-                    </div>
-                </div>
-                <!-- =============================
-                     MÓN 3 - CƠM TẤM
-                ============================== -->
-                <div
-                    class="food-card"
-                    data-name="Cơm Tấm"
-                    data-price="55000"
-                >
-                    <div class="food-content">
-                        <div class="food-title-row">
-                            <input
-                                type="checkbox"
-                                class="food-checkbox"
-                            >
-                            <img
-                                src="../image/com_tam.jpg"
-                                alt="Cơm Tấm"
-                            >
-                            <h3>
-                                Cơm Tấm
-                            </h3>
-                        </div>
-                        <p class="food-desc">
-                            Cơm tấm sườn nướng,
-                            bì, chả và nước mắm.
-                        </p>
-                        <div class="food-price">
-                            55.000 VNĐ
-                        </div>
-                        <div class="quantity-control">
-                            <button
-                                type="button"
-                                class="btn-minus"
-                            >
-                                -
-                            </button>
-                            <input
-                                type="number"
-                                class="quantity-input"
-                                value="1"
-                                min="1"
-                            >
-                            <button
-                                type="button"
-                                class="btn-plus"
-                            >
-                                +
-                            </button>
-                        </div>
-                        <div class="note-control">
-                            <label>
-                                Ghi chú
-                            </label>
-                            <input
-                                type="text"
-                                class="note-input"
-                                placeholder="Ví dụ: thêm cơm..."
-                            >
-                        </div>
-                    </div>
-                </div>
-                <!-- =============================
-                     MÓN 4 - BÁNH MÌ CHẢO
-                ============================== -->
-                <div
-                    class="food-card"
-                    data-name="Bánh Mì Chảo"
-                    data-price="30000"
-                >
-                    <div class="food-content">
-                        <div class="food-title-row">
-                            <input
-                                type="checkbox"
-                                class="food-checkbox"
-                            >
-                            <img
-                                src="../image/banh_mi_chao.jpg"
-                                alt="Bánh Mì Chảo"
-                            >
-                            <h3>
-                                Bánh Mì Chảo
-                            </h3>
-                        </div>
-                        <p class="food-desc">
-                            Bánh mì giòn, nhân thịt,
-                            pate, rau và nước sốt.
-                        </p>
-                        <div class="food-price">
-                            30.000 VNĐ
-                        </div>
-                        <div class="quantity-control">
-                            <button
-                                type="button"
-                                class="btn-minus"
-                            >
-                                -
-                            </button>
-                            <input
-                                type="number"
-                                class="quantity-input"
-                                value="1"
-                                min="1"
-                            >
-                            <button
-                                type="button"
-                                class="btn-plus"
-                            >
-                                +
-                            </button>
-                        </div>
-                        <div class="note-control">
-                            <label>
-                                Ghi chú
-                            </label>
-                            <input
-                                type="text"
-                                class="note-input"
-                                placeholder="Ví dụ: không pate..."
-                            >
-                        </div>
-                    </div>
-                </div>
-                <!-- =============================
-                     MÓN 5 - MÌ QUẢNG
-                ============================== -->
-                <div
-                    class="food-card"
-                    data-name="Mì Quảng"
-                    data-price="65000"
-                >
-                    <div class="food-content">
-                        <div class="food-title-row">
-                            <input
-                                type="checkbox"
-                                class="food-checkbox"
-                            >
-                            <img
-                                src="../image/mi_quang.jpg"
-                                alt="Mì Quảng"
-                            >
-                            <h3>
-                                Mì Quảng
-                            </h3>
-                        </div>
-                        <p class="food-desc">
-                            Mì Quảng đậm đà,
-                            ăn kèm bánh tráng và rau sống.
-                        </p>
-                        <div class="food-price">
-                            65.000 VNĐ
-                        </div>
-                        <div class="quantity-control">
-                            <button
-                                type="button"
-                                class="btn-minus"
-                            >
-                                -
-                            </button>
-                            <input
-                                type="number"
-                                class="quantity-input"
-                                value="1"
-                                min="1"
-                            >
-                            <button
-                                type="button"
-                                class="btn-plus"
-                            >
-                                +
-                            </button>
-                        </div>
-                        <div class="note-control">
-                            <label>
-                                Ghi chú
-                            </label>
-                            <input
-                                type="text"
-                                class="note-input"
-                                placeholder="Ví dụ: không rau..."
-                            >
-                        </div>
-                    </div>
-                </div>
-                <!-- =============================
-                     MÓN 6 - PIZZA HẢI SẢN
-                ============================== -->
-                <div
-                    class="food-card"
-                    data-name="Pizza Hải Sản"
-                    data-price="150000"
-                >
-                    <div class="food-content">
-                        <div class="food-title-row">
-                            <input
-                                type="checkbox"
-                                class="food-checkbox"
-                            >
-                            <img
-                                src="../image/pizza_hai_san.png"
-                                alt="Pizza Hải Sản"
-                            >
-                            <h3>
-                                Pizza Hải Sản
-                            </h3>
-                        </div>
-                        <p class="food-desc">
-                            Pizza hải sản phô mai,
-                            đế giòn, sốt cà chua.
-                        </p>
-                        <div class="food-price">
-                            150.000 VNĐ
-                        </div>
-                        <div class="quantity-control">
-                            <button
-                                type="button"
-                                class="btn-minus"
-                            >
-                                -
-                            </button>
-                            <input
-                                type="number"
-                                class="quantity-input"
-                                value="1"
-                                min="1"
-                            >
-                            <button
-                                type="button"
-                                class="btn-plus"
-                            >
-                                +
-                            </button>
-                        </div>
-                        <div class="note-control">
-                            <label>
-                                Ghi chú
-                            </label>
-                            <input
-                                type="text"
-                                class="note-input"
-                                placeholder="Ví dụ: thêm phô mai..."
-                            >
-                        </div>
-                    </div>
-                </div>
-                <!-- =============================
-                     MÓN 7 - BÚN CHẢ
-                ============================== -->
-                <div
-                    class="food-card"
-                    data-name="Bún Chả"
-                    data-price="45000"
-                >
-                    <div class="food-content">
-                        <div class="food-title-row">
-                            <input
-                                type="checkbox"
-                                class="food-checkbox"
-                            >
-                            <img
-                                src="../image/bun_cha.jpg"
-                                alt="Bún Chả"
-                            >
-                            <h3>
-                                Bún Chả
-                            </h3>
-                        </div>
-                        <p class="food-desc">
-                            Bún chả Hà Nội,
-                            thơm ngon, đậm vị.
-                        </p>
-                        <div class="food-price">
-                            45.000 VNĐ
-                        </div>
-                        <div class="quantity-control">
-                            <button
-                                type="button"
-                                class="btn-minus"
-                            >
-                                -
-                            </button>
-                            <input
-                                type="number"
-                                class="quantity-input"
-                                value="1"
-                                min="1"
-                            >
-                            <button
-                                type="button"
-                                class="btn-plus"
-                            >
-                                +
-                            </button>
-                        </div>
-                        <div class="note-control">
-                            <label>
-                                Ghi chú
-                            </label>
-                            <input
-                                type="text"
-                                class="note-input"
-                                placeholder="Ví dụ: thêm nước chấm..."
-                            >
-                        </div>
-                    </div>
-                </div>
-                <!-- =============================
-                     MÓN 8 - GỎI CUỐN
-                ============================== -->
-                <div
-                    class="food-card"
-                    data-name="Gỏi Cuốn"
-                    data-price="45000"
-                >
-                    <div class="food-content">
-                        <div class="food-title-row">
-                            <input
-                                type="checkbox"
-                                class="food-checkbox"
-                            >
-                            <img
-                                src="../image/goi_cuon.jpg"
-                                alt="Gỏi Cuốn"
-                            >
-                            <h3>
-                                Gỏi Cuốn
-                            </h3>
-                        </div>
-                        <p class="food-desc">
-                            Gỏi cuốn tôm thịt,
-                            rau tươi, chấm sốt đậu phộng.
-                        </p>
-                        <div class="food-price">
-                            45.000 VNĐ
-                        </div>
-                        <div class="quantity-control">
-                            <button
-                                type="button"
-                                class="btn-minus"
-                            >
-                                -
-                            </button>
-                            <input
-                                type="number"
-                                class="quantity-input"
-                                value="1"
-                                min="1"
-                            >
-                            <button
-                                type="button"
-                                class="btn-plus"
-                            >
-                                +
-                            </button>
-                        </div>
-                        <div class="note-control">
-                            <label>
-                                Ghi chú
-                            </label>
-                            <input
-                                type="text"
-                                class="note-input"
-                                placeholder="Ví dụ: không rau..."
-                            >
-                        </div>
-                    </div>
-                </div>
-                <!-- =============================
-                     MÓN 9 - TRÀ SỮA
-                ============================== -->
-                <div
-                    class="food-card"
-                    data-name="Trà Sữa"
-                    data-price="35000"
-                >
-                    <div class="food-content">
-                        <div class="food-title-row">
-                            <input
-                                type="checkbox"
-                                class="food-checkbox"
-                            >
-                            <img
-                                src="../image/tra_sua.jpg"
-                                alt="Trà Sữa"
-                            >
-                            <h3>
-                                Trà Sữa
-                            </h3>
-                        </div>
-                        <p class="food-desc">
-                            Trà sữa thơm béo,
-                            có topping trân châu.
-                        </p>
-                        <div class="food-price">
-                            35.000 VNĐ
-                        </div>
-                        <div class="quantity-control">
-                            <button
-                                type="button"
-                                class="btn-minus"
-                            >
-                                -
-                            </button>
-                            <input
-                                type="number"
-                                class="quantity-input"
-                                value="1"
-                                min="1"
-                            >
-                            <button
-                                type="button"
-                                class="btn-plus"
-                            >
-                                +
-                            </button>
-                        </div>
-                        <div class="note-control">
-                            <label>
-                                Ghi chú
-                            </label>
-                            <input
-                                type="text"
-                                class="note-input"
-                                placeholder="Ví dụ: ít đá, ít đường..."
-                            >
-                        </div>
-                    </div>
-                </div>
-                <!-- =============================
-                     MÓN 10 - CÀ PHÊ SỮA
-                ============================== -->
-                <div
-                    class="food-card"
-                    data-name="Cà Phê Sữa"
-                    data-price="30000"
-                >
-                    <div class="food-content">
-                        <div class="food-title-row">
-                            <input
-                                type="checkbox"
-                                class="food-checkbox"
-                            >
-                            <img
-                                src="../image/ca_phe_sua.jpg"
-                                alt="Cà Phê Sữa"
-                            >
-                            <h3>
-                                Cà Phê Sữa
-                            </h3>
-                        </div>
-                        <p class="food-desc">
-                            Cà phê sữa đá đậm vị,
-                            phù hợp dùng sau bữa ăn.
-                        </p>
-                        <div class="food-price">
-                            30.000 VNĐ
-                        </div>
-                        <div class="quantity-control">
-                            <button
-                                type="button"
-                                class="btn-minus"
-                            >
-                                -
-                            </button>
-                            <input
-                                type="number"
-                                class="quantity-input"
-                                value="1"
-                                min="1"
-                            >
-                            <button
-                                type="button"
-                                class="btn-plus"
-                            >
-                                +
-                            </button>
-                        </div>
-                        <div class="note-control">
-                            <label>
-                                Ghi chú
-                            </label>
-                            <input
-                                type="text"
-                                class="note-input"
-                                placeholder="Ví dụ: ít sữa..."
-                            >
-                        </div>
+                    <div class="ordered-foods-empty">
+                        Bàn chưa đặt món.
                     </div>
                 </div>
             </section>
         </div>
-        <!-- =====================================
-             ĐƠN HÀNG BÊN PHẢI
-        ====================================== -->
-        <aside class="order-summary">
-            <h2>
-                Đơn hàng
-            </h2>
-            <!-- DANH SÁCH MÓN ĐÃ CHỌN -->
-            <div
-                id="selectedItems"
-                class="selected-items"
-            >
-                Chưa chọn món nào.
-            </div>
-            <!-- TỔNG TIỀN -->
-            <div class="total-row">
-                <span>
-                    Tổng tiền:
-                </span>
-                <strong id="totalPrice">
-                    0 VNĐ
-                </strong>
-            </div>
-            <!-- NÚT ĐẶT MÓN -->
-            <button
-                type="button"
-                id="orderButton"
-            >
-                Đặt món
-            </button>
-            <!-- =====================================
-         CÁC MÓN BÀN ĐÃ ĐẶT
-    ====================================== -->
-    <div class="ordered-foods-section">
-
-        <div class="ordered-foods-header">
-
-            <h3>
-                Món bàn đã đặt
-            </h3>
-
-            <span id="orderedFoodsCount">
-                0 phần
-            </span>
-
-        </div>
-
-        <div
-            id="orderedFoodsList"
-            class="ordered-foods-list"
-        >
-
-            <div class="ordered-foods-empty">
-                Bàn chưa đặt món.
-            </div>
-
-        </div>
-
-    </div>
-        </aside>
     </main>
-    <!-- =========================================
-         KẾT NỐI JAVASCRIPT
-    ========================================== -->
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
     <script src="script.js"></script>
 </body>
 </html>
