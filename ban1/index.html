@@ -9,7 +9,6 @@
     <title>
         Menu Điện Tử - dat.cao
     </title>
-    <!-- CSS -->
     <link
         rel="stylesheet"
         href="style.css"
@@ -69,8 +68,7 @@
             </button>
         </div>
         <!-- =================================================
-             TAB 1
-             GỌI MÓN MỚI
+             TAB 1 - GỌI MÓN
         ================================================== -->
         <div
             id="newOrderTab"
@@ -694,21 +692,47 @@
                         </div>
                     </section>
                 </div>
-                <!-- =========================================
-                     ĐƠN HÀNG ĐANG CHỌN
-                ========================================== -->
-                <aside class="order-summary">
+                <!-- =================================================
+                     ĐƠN HÀNG
+                     DESKTOP: STICKY BÊN PHẢI
+                     MOBILE: FIXED Ở ĐÁY
+                ================================================== -->
+                <aside
+                    class="order-summary"
+                    id="orderSummary"
+                >
+                    <!-- =============================================
+                         NÚT MỞ / THU GỌN TRÊN MOBILE
+                    ============================================== -->
+                    <button
+                        type="button"
+                        id="orderPanelToggle"
+                        class="order-panel-toggle"
+                        aria-label="Mở rộng đơn hàng"
+                        aria-expanded="false"
+                    >
+                        <span class="order-panel-arrow">
+                            ▲
+                        </span>
+                    </button>
+                    <!-- =============================================
+                         TIÊU ĐỀ
+                    ============================================== -->
                     <h2>
                         Đơn hàng
                     </h2>
-                    <!-- DANH SÁCH ĐANG CHỌN -->
+                    <!-- =============================================
+                         DANH SÁCH MÓN ĐANG CHỌN
+                    ============================================== -->
                     <div
                         id="selectedItems"
                         class="selected-items"
                     >
                         Chưa chọn món nào.
                     </div>
-                    <!-- TỔNG TIỀN -->
+                    <!-- =============================================
+                         TỔNG TIỀN
+                    ============================================== -->
                     <div class="total-row">
                         <span>
                             Tổng tiền:
@@ -717,7 +741,9 @@
                             0 VNĐ
                         </strong>
                     </div>
-                    <!-- NÚT ĐẶT MÓN -->
+                    <!-- =============================================
+                         NÚT ĐẶT MÓN
+                    ============================================== -->
                     <button
                         type="button"
                         id="orderButton"
@@ -728,8 +754,7 @@
             </div>
         </div>
         <!-- =================================================
-             TAB 2
-             MÓN BÀN ĐÃ ĐẶT
+             TAB 2 - MÓN ĐÃ ĐẶT
         ================================================== -->
         <div
             id="orderedTab"
@@ -737,7 +762,7 @@
         >
             <section class="ordered-foods-section">
                 <!-- =========================================
-                     HEADER TAB MÓN ĐÃ ĐẶT
+                     HEADER
                 ========================================== -->
                 <div class="ordered-foods-header">
                     <h2>
