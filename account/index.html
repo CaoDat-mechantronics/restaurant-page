@@ -2,30 +2,101 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
     <title>Dashboard Quản Lý</title>
-    <link rel="stylesheet" href="style.css">
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 </head>
-<body>
+<body class="auth-checking">
+    <!-- ==================================================
+         HEADER
+         ================================================== -->
     <header class="main-header">
         <div>
-            <h1>Quản Lý Đơn Hàng</h1>
-            <p>Theo dõi món ăn, trạng thái nấu, robot giao món và thanh toán</p>
+            <h1>
+                Quản Lý Đơn Hàng
+            </h1>
+            <p>
+                Theo dõi món ăn, trạng thái nấu,
+                robot giao món và thanh toán
+            </p>
         </div>
-
-        <div id="connectionStatus" class="connection-status connecting">
-            Realtime: đang kết nối...
+        <!-- ==============================================
+             KHU VỰC USER + REALTIME
+             ============================================== -->
+        <div class="header-actions">
+            <div
+                id="connectionStatus"
+                class="connection-status connecting"
+            >
+                Realtime: đang kết nối...
+            </div>
+            <div class="account-summary">
+                <!-- USER HIỆN TẠI -->
+                <div class="account-identity">
+                    <strong id="currentUsername">
+                        ...
+                    </strong>
+                    <span
+                        id="currentRoleBadge"
+                        class="role-badge"
+                    >
+                        ...
+                    </span>
+                </div>
+                <!-- ĐỔI PASSWORD -->
+                <button
+                    type="button"
+                    id="changePasswordButton"
+                    class="header-button"
+                >
+                    Đổi mật khẩu
+                </button>
+                <!--
+                    CHỈ ADMIN MỚI THẤY.
+                    script.js sẽ bỏ class hidden
+                    nếu role === admin.
+                -->
+                <button
+                    type="button"
+                    id="manageUsersButton"
+                    class="header-button hidden"
+                >
+                    Quản lý user
+                </button>
+                <!-- ĐĂNG XUẤT -->
+                <button
+                    type="button"
+                    id="logoutButton"
+                    class="header-button danger"
+                >
+                    Đăng xuất
+                </button>
+            </div>
         </div>
     </header>
-
+    <!-- ==================================================
+         DASHBOARD
+         ================================================== -->
     <main class="dashboard-container">
+        <!-- ==================================================
+             DANH SÁCH BÀN
+             ================================================== -->
         <section class="tables-section">
             <div class="section-title-row">
                 <div>
-                    <h2>Danh sách bàn</h2>
-                    <p>Chọn bàn để xem đơn hàng</p>
+                    <h2>
+                        Danh sách bàn
+                    </h2>
+                    <p>
+                        Chọn bàn để xem đơn hàng
+                    </p>
                 </div>
-
                 <button
                     type="button"
                     id="refreshTablesButton"
@@ -34,17 +105,24 @@
                     Làm mới
                 </button>
             </div>
-
-            <div id="tablesContainer" class="tables-container"></div>
+            <div
+                id="tablesContainer"
+                class="tables-container"
+            ></div>
         </section>
-
+        <!-- ==================================================
+             CHI TIẾT ĐƠN HÀNG
+             ================================================== -->
         <section class="order-section">
             <div class="order-header">
                 <div>
-                    <h2 id="selectedTableTitle">Chi tiết đơn hàng</h2>
-                    <p id="selectedTableDescription">Hãy chọn một bàn phía trên</p>
+                    <h2 id="selectedTableTitle">
+                        Chi tiết đơn hàng
+                    </h2>
+                    <p id="selectedTableDescription">
+                        Hãy chọn một bàn phía trên
+                    </p>
                 </div>
-
                 <button
                     type="button"
                     id="refreshOrderButton"
@@ -54,49 +132,110 @@
                     Cập nhật
                 </button>
             </div>
-
-            <div id="pendingServerNotice" class="pending-server-notice hidden">
-                Có dữ liệu mới từ server. Hãy lưu hoặc hủy thay đổi hiện tại rồi bấm Cập nhật.
+            <!-- SERVER CÓ DATA MỚI
+                 NHƯNG USER ĐANG EDIT -->
+            <div
+                id="pendingServerNotice"
+                class="pending-server-notice hidden"
+            >
+                Có dữ liệu mới từ server.
+                Hãy lưu hoặc hủy thay đổi hiện tại
+                rồi bấm Cập nhật.
             </div>
-
-            <div id="emptySelection" class="empty-selection">
-                <div class="empty-icon">🍽️</div>
-                <h3>Chưa chọn bàn</h3>
-                <p>Bấm vào một số bàn để xem các món đang được đặt.</p>
+            <!-- CHƯA CHỌN BÀN -->
+            <div
+                id="emptySelection"
+                class="empty-selection"
+            >
+                <div class="empty-icon">
+                    🍽️
+                </div>
+                <h3>
+                    Chưa chọn bàn
+                </h3>
+                <p>
+                    Bấm vào một số bàn để xem
+                    các món đang được đặt.
+                </p>
             </div>
-
-            <div id="loadingBox" class="loading-box hidden">
+            <!-- LOADING -->
+            <div
+                id="loadingBox"
+                class="loading-box hidden"
+            >
                 Đang tải dữ liệu...
             </div>
-
-            <div id="orderContent" class="order-content hidden">
+            <!-- ==================================================
+                 ORDER CONTENT
+                 ================================================== -->
+            <div
+                id="orderContent"
+                class="order-content hidden"
+            >
+                <!-- ==============================================
+                     ORDER TABLE
+                     ============================================== -->
                 <div class="order-table-scroll">
+                    <!-- HEADER TABLE -->
                     <div class="order-item-header">
-                        <div>Món ăn</div>
-                        <div>Ghi chú</div>
-                        <div>Số lượng</div>
-                        <div>Đơn giá</div>
-                        <div>Thành tiền</div>
-                        <div class="center-text">Đã nấu</div>
-                        <div class="center-text">Đã giao</div>
-                        <div class="center-text">Robot</div>
-                        <div class="center-text">Chuyển giao</div>
+                        <div>
+                            Món ăn
+                        </div>
+                        <div>
+                            Ghi chú
+                        </div>
+                        <div>
+                            Số lượng
+                        </div>
+                        <div>
+                            Đơn giá
+                        </div>
+                        <div>
+                            Thành tiền
+                        </div>
+                        <div class="center-text">
+                            Đã nấu
+                        </div>
+                        <div class="center-text">
+                            Đã giao
+                        </div>
+                        <div class="center-text">
+                            Robot
+                        </div>
+                        <div class="center-text">
+                            Chuyển giao
+                        </div>
                     </div>
-
-                    <div id="orderItems"></div>
+                    <!--
+                        script.js sẽ render
+                        từng món vào đây
+                    -->
+                    <div id="orderItems">
+                    </div>
                 </div>
-
-                <div id="noItemsMessage" class="no-items-message hidden">
+                <!-- KHÔNG CÓ MÓN -->
+                <div
+                    id="noItemsMessage"
+                    class="no-items-message hidden"
+                >
                     Bàn này hiện không có món nào.
                 </div>
-
+                <!-- ==============================================
+                     FOOTER
+                     ============================================== -->
                 <div class="order-footer">
+                    <!-- TỔNG TIỀN -->
                     <div class="total-area">
-                        <span>Tổng tiền:</span>
-                        <strong id="tableTotal">0 VNĐ</strong>
+                        <span>
+                            Tổng tiền:
+                        </span>
+                        <strong id="tableTotal">
+                            0 VNĐ
+                        </strong>
                     </div>
-
+                    <!-- ACTION -->
                     <div class="order-actions">
+                        <!-- UPDATE -->
                         <button
                             type="button"
                             id="saveChangesButton"
@@ -105,7 +244,7 @@
                         >
                             Update
                         </button>
-
+                        <!-- THANH TOÁN -->
                         <button
                             type="button"
                             id="payButton"
@@ -119,7 +258,240 @@
             </div>
         </section>
     </main>
-
+    <!-- ==================================================
+         MODAL ĐỔI PASSWORD
+         ================================================== -->
+    <div
+        id="changePasswordModal"
+        class="modal-backdrop hidden"
+    >
+        <div
+            class="modal-card small-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="changePasswordTitle"
+        >
+            <!-- HEADER -->
+            <div class="modal-header">
+                <div>
+                    <h2 id="changePasswordTitle">
+                        Đổi mật khẩu
+                    </h2>
+                    <p>
+                        Sau khi đổi mật khẩu,
+                        tài khoản sẽ phải đăng nhập lại.
+                    </p>
+                </div>
+                <button
+                    type="button"
+                    class="modal-close"
+                    data-close-modal="changePasswordModal"
+                    aria-label="Đóng"
+                >
+                    ×
+                </button>
+            </div>
+            <!-- FORM -->
+            <form
+                id="changePasswordForm"
+                class="account-form"
+            >
+                <!-- PASSWORD HIỆN TẠI -->
+                <label>
+                    Mật khẩu hiện tại
+                    <input
+                        id="currentPasswordInput"
+                        type="password"
+                        minlength="8"
+                        autocomplete="current-password"
+                        required
+                    >
+                </label>
+                <!-- PASSWORD MỚI -->
+                <label>
+                    Mật khẩu mới
+                    <input
+                        id="newPasswordInput"
+                        type="password"
+                        minlength="8"
+                        autocomplete="new-password"
+                        required
+                    >
+                </label>
+                <!-- CONFIRM PASSWORD -->
+                <label>
+                    Nhập lại mật khẩu mới
+                    <input
+                        id="confirmNewPasswordInput"
+                        type="password"
+                        minlength="8"
+                        autocomplete="new-password"
+                        required
+                    >
+                </label>
+                <!-- MESSAGE -->
+                <div
+                    id="changePasswordMessage"
+                    class="form-message hidden"
+                >
+                </div>
+                <!-- ACTION -->
+                <div class="modal-actions">
+                    <button
+                        type="button"
+                        class="secondary-button"
+                        data-close-modal="changePasswordModal"
+                    >
+                        Hủy
+                    </button>
+                    <button
+                        type="submit"
+                        id="savePasswordButton"
+                        class="primary-account-button"
+                    >
+                        Đổi mật khẩu
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- ==================================================
+         ADMIN - QUẢN LÝ USER
+         ================================================== -->
+    <div
+        id="userManagementModal"
+        class="modal-backdrop hidden"
+    >
+        <div
+            class="modal-card user-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="userManagementTitle"
+        >
+            <!-- HEADER -->
+            <div class="modal-header">
+                <div>
+                    <h2 id="userManagementTitle">
+                        Quản lý tài khoản
+                    </h2>
+                    <p>
+                        Admin chỉ thêm, sửa hoặc xóa
+                        tài khoản quản lý thông thường.
+                    </p>
+                </div>
+                <button
+                    type="button"
+                    class="modal-close"
+                    data-close-modal="userManagementModal"
+                    aria-label="Đóng"
+                >
+                    ×
+                </button>
+            </div>
+            <!-- ==========================================
+                 TOOLBAR
+                 ========================================== -->
+            <div class="user-toolbar">
+                <button
+                    type="button"
+                    id="addManagerButton"
+                    class="primary-account-button"
+                >
+                    + Thêm tài khoản
+                </button>
+            </div>
+            <!-- ==========================================
+                 DANH SÁCH MANAGER
+                 ========================================== -->
+            <div
+                id="managerUsersList"
+                class="manager-users-list"
+            >
+            </div>
+            <!-- ==========================================
+                 FORM THÊM / SỬA MANAGER
+                 ========================================== -->
+            <form
+                id="managerUserForm"
+                class="account-form manager-user-form hidden"
+            >
+                <!-- ID USER -->
+                <input
+                    type="hidden"
+                    id="managerUserIdInput"
+                >
+                <!-- TITLE -->
+                <h3 id="managerUserFormTitle">
+                    Thêm tài khoản quản lý
+                </h3>
+                <!-- ======================================
+                     USERNAME + PASSWORD
+                     ====================================== -->
+                <div class="form-grid">
+                    <!-- USERNAME -->
+                    <label>
+                        Username
+                        <input
+                            id="managerUsernameInput"
+                            type="text"
+                            minlength="3"
+                            maxlength="50"
+                            pattern="[A-Za-z0-9_.-]{3,50}"
+                            autocomplete="off"
+                            required
+                        >
+                    </label>
+                    <!-- PASSWORD -->
+                    <label>
+                        <span id="managerPasswordLabel">
+                            Mật khẩu
+                        </span>
+                        <input
+                            id="managerPasswordInput"
+                            type="password"
+                            minlength="8"
+                            autocomplete="new-password"
+                        >
+                    </label>
+                </div>
+                <!-- ACTIVE -->
+                <label class="checkbox-label">
+                    <input
+                        id="managerActiveInput"
+                        type="checkbox"
+                        checked
+                    >
+                    Tài khoản đang hoạt động
+                </label>
+                <!-- MESSAGE -->
+                <div
+                    id="managerUserMessage"
+                    class="form-message hidden"
+                >
+                </div>
+                <!-- ACTION -->
+                <div class="modal-actions">
+                    <button
+                        type="button"
+                        id="cancelManagerEditButton"
+                        class="secondary-button"
+                    >
+                        Hủy
+                    </button>
+                    <button
+                        type="submit"
+                        id="saveManagerUserButton"
+                        class="primary-account-button"
+                    >
+                        Lưu
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- ==================================================
+         JAVASCRIPT
+         ================================================== -->
     <script src="script.js"></script>
 </body>
 </html>

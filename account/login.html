@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập quản lý</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="login-page">
+    <main class="login-shell">
+        <section class="login-card">
+            <div class="login-brand">🍽️</div>
+            <h1>Đăng nhập</h1>
+            <p>Đăng nhập vào trang quản lý nhà hàng Cao Đạt</p>
+            <form id="loginForm" class="login-form">
+                <label>
+                    Username
+                    <input id="usernameInput" type="text" minlength="3" maxlength="50" autocomplete="username" autofocus required>
+                </label>
+                <label>
+                    Password
+                    <input id="passwordInput" type="password" minlength="8" autocomplete="current-password" required>
+                </label>
+                <div id="loginMessage" class="form-message hidden"></div>
+                <button id="loginButton" type="submit" class="login-button">Đăng nhập</button>
+            </form>
+        </section>
+    </main>
+    <script src="login.js"></script>
+</body>
+</html>
