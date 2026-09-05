@@ -359,7 +359,7 @@ body {
         rgba(25, 118, 210, 0.10);
 }
 /* ============================================
-   ORDER SUMMARY DESKTOP
+   ORDER SUMMARY
 ============================================ */
 .order-summary {
     width: 100%;
@@ -380,7 +380,6 @@ body {
 }
 /* ============================================
    EXPAND HANDLE
-   ẨN TRÊN PC
 ============================================ */
 .order-panel-toggle {
     display: none;
@@ -454,7 +453,7 @@ body {
     text-align: right;
 }
 /* ============================================
-   ORDER ACTIONS
+   ACTIONS
 ============================================ */
 .order-actions {
     display: flex;
@@ -464,7 +463,7 @@ body {
     width: 100%;
 }
 /* ============================================
-   PICKED FOOD BUTTON
+   PICK BUTTON
 ============================================ */
 .picked-food-button {
     position: relative;
@@ -482,18 +481,15 @@ body {
     transition:
         background 0.2s,
         transform 0.15s;
-    -webkit-tap-highlight-color:
-        transparent;
 }
 .picked-food-button:hover {
     background: #e8eaed;
 }
 .picked-food-button:active {
-    transform:
-        scale(0.96);
+    transform: scale(0.96);
 }
 /* ============================================
-   FOOD ICON
+   ICON
 ============================================ */
 .picked-food-icon {
     display: block;
@@ -501,7 +497,7 @@ body {
     line-height: 1;
 }
 /* ============================================
-   PICKED COUNT BADGE
+   BADGE
 ============================================ */
 .picked-count {
     position: absolute;
@@ -549,9 +545,6 @@ body {
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
-    transition:
-        background 0.2s,
-        opacity 0.2s;
 }
 #orderButton:hover {
     background: #2e7d32;
@@ -578,14 +571,43 @@ body {
 .ordered-foods-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     gap: 12px;
     margin-bottom: 18px;
 }
-.ordered-foods-header h2 {
+/* ============================================
+   TITLE + TOTAL
+============================================ */
+.ordered-foods-title-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 7px;
+    min-width: 0;
+}
+.ordered-foods-title-group h2 {
     margin: 0;
     font-size: 24px;
 }
+/* ============================================
+   TỔNG TIỀN MÓN ĐÃ ĐẶT
+============================================ */
+.ordered-foods-total {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 15px;
+    color: #666;
+}
+#orderedFoodsTotal {
+    color: #e53935;
+    font-size: 18px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+/* ============================================
+   ORDERED COUNT
+============================================ */
 #orderedFoodsCount {
     flex-shrink: 0;
     padding:
@@ -669,7 +691,7 @@ body {
     color: #1565c0;
 }
 /* ============================================
-   ORDERED NOTE
+   NOTE
 ============================================ */
 .ordered-food-note {
     margin-top: 9px;
@@ -768,9 +790,7 @@ body {
     body {
         overflow-x: hidden;
     }
-    /* ========================================
-       HEADER
-    ======================================== */
+    /* HEADER */
     .header {
         padding:
             26px
@@ -782,18 +802,14 @@ body {
     .header p {
         font-size: 16px;
     }
-    /* ========================================
-       MAIN
-    ======================================== */
+    /* MAIN */
     .main-container {
         padding:
             0
             14px
             20px;
     }
-    /* ========================================
-       TABLE NUMBER
-    ======================================== */
+    /* TABLE */
     .table-number-top {
         margin-top: -6px;
         margin-bottom: 12px;
@@ -809,9 +825,7 @@ body {
         height: 31px;
         font-size: 16px;
     }
-    /* ========================================
-       TABS
-    ======================================== */
+    /* TAB */
     .menu-tabs {
         position: sticky;
         top: 0;
@@ -825,12 +839,9 @@ body {
             6px;
         font-size: 15px;
     }
-    /* ========================================
-       MENU
-    ======================================== */
+    /* MENU */
     .menu-container {
-        grid-template-columns:
-            1fr;
+        grid-template-columns: 1fr;
         gap: 20px;
     }
     .food-content {
@@ -884,18 +895,14 @@ body {
             max-height 0.3s ease,
             box-shadow 0.3s ease;
     }
-    /* ========================================
-       EXPANDED
-    ======================================== */
+    /* EXPANDED */
     .order-summary.expanded {
         max-height: 72dvh;
         box-shadow:
             0 -8px 32px
             rgba(0, 0, 0, 0.27);
     }
-    /* ========================================
-       HANDLE BUTTON
-    ======================================== */
+    /* HANDLE BUTTON */
     .order-panel-toggle {
         display: flex;
         align-items: center;
@@ -912,12 +919,8 @@ body {
         border: none;
         background: transparent;
         cursor: pointer;
-        -webkit-tap-highlight-color:
-            transparent;
     }
-    /* ========================================
-       HANDLE
-    ======================================== */
+    /* HANDLE */
     .expand-handle {
         display: flex;
         flex-direction: column;
@@ -942,24 +945,18 @@ body {
     .expand-handle span:nth-child(3) {
         width: 34px;
     }
-    /* Khi mở thì đảo chiều */
     .order-summary.expanded
     .expand-handle {
         transform:
             rotate(180deg);
     }
-    /* ========================================
-       ORDER TITLE
-    ======================================== */
+    /* TITLE */
     .order-summary h2 {
         flex-shrink: 0;
         margin-bottom: 7px;
         font-size: 20px;
-        line-height: 1.2;
     }
-    /* ========================================
-       SELECTED ITEMS COLLAPSED
-    ======================================== */
+    /* SELECTED COLLAPSED */
     .order-summary
     .selected-items {
         min-height: 0;
@@ -978,9 +975,7 @@ body {
             0;
         font-size: 13px;
     }
-    /* ========================================
-       SELECTED ITEMS EXPANDED
-    ======================================== */
+    /* SELECTED EXPANDED */
     .order-summary.expanded
     .selected-items {
         min-height: 130px;
@@ -993,9 +988,7 @@ body {
         flex: 1;
         overflow-y: auto;
     }
-    /* ========================================
-       TOTAL
-    ======================================== */
+    /* TOTAL */
     .order-summary
     .total-row {
         flex-shrink: 0;
@@ -1006,9 +999,7 @@ body {
     #totalPrice {
         font-size: 18px;
     }
-    /* ========================================
-       ACTIONS
-    ======================================== */
+    /* ACTION */
     .order-actions {
         display: grid;
         grid-template-columns:
@@ -1019,9 +1010,7 @@ body {
         width: 100%;
         flex-shrink: 0;
     }
-    /* ========================================
-       ICON
-    ======================================== */
+    /* ICON */
     .picked-food-button {
         width: 54px;
         height: 40px;
@@ -1037,9 +1026,7 @@ body {
         height: 21px;
         font-size: 11px;
     }
-    /* ========================================
-       ORDER BUTTON
-    ======================================== */
+    /* ORDER BUTTON */
     .order-summary
     #orderButton {
         width: 100%;
@@ -1052,21 +1039,34 @@ body {
         border-radius: 10px;
         font-size: 15px;
     }
-    /* ========================================
-       CHỪA KHOẢNG DƯỚI MENU
-    ======================================== */
+    /* CHỪA CHỖ PANEL */
     #newOrderTab {
         padding-bottom: 255px;
     }
     /* ========================================
-       ORDERED TAB
+       TAB MÓN ĐÃ ĐẶT
     ======================================== */
     .ordered-foods-section {
         padding: 17px;
         border-radius: 15px;
     }
-    .ordered-foods-header h2 {
+    .ordered-foods-header {
+        align-items: flex-start;
+    }
+    .ordered-foods-title-group h2 {
         font-size: 21px;
+    }
+    .ordered-foods-total {
+        font-size: 14px;
+    }
+    #orderedFoodsTotal {
+        font-size: 17px;
+    }
+    #orderedFoodsCount {
+        padding:
+            5px
+            10px;
+        font-size: 12px;
     }
     .ordered-food-item {
         padding: 13px;
@@ -1131,8 +1131,15 @@ body {
     .ordered-foods-section {
         padding: 13px;
     }
-    .ordered-foods-header h2 {
+    .ordered-foods-title-group h2 {
         font-size: 19px;
+    }
+    .ordered-foods-total {
+        gap: 5px;
+        font-size: 13px;
+    }
+    #orderedFoodsTotal {
+        font-size: 16px;
     }
     .ordered-food-main {
         flex-direction: column;

@@ -8,7 +8,7 @@ const API_BASE_URL =
 // =========================================================
 const DEFAULT_TABLE_NUMBER = 8;
 // =========================================================
-// LẤY ELEMENT - MENU
+// ELEMENT - MENU
 // =========================================================
 const foodCards =
     document.querySelectorAll(
@@ -31,21 +31,6 @@ const tableNumberInput =
         "tableNumber"
     );
 // =========================================================
-// ELEMENT - MÓN ĐÃ ĐẶT
-// =========================================================
-const orderedFoodsList =
-    document.getElementById(
-        "orderedFoodsList"
-    );
-const orderedFoodsCount =
-    document.getElementById(
-        "orderedFoodsCount"
-    );
-const orderedTabCount =
-    document.getElementById(
-        "orderedTabCount"
-    );
-// =========================================================
 // ELEMENT - TAB
 // =========================================================
 const menuTabs =
@@ -61,6 +46,25 @@ const orderedTab =
         "orderedTab"
     );
 // =========================================================
+// ELEMENT - MÓN ĐÃ ĐẶT
+// =========================================================
+const orderedFoodsList =
+    document.getElementById(
+        "orderedFoodsList"
+    );
+const orderedFoodsCount =
+    document.getElementById(
+        "orderedFoodsCount"
+    );
+const orderedTabCount =
+    document.getElementById(
+        "orderedTabCount"
+    );
+const orderedFoodsTotal =
+    document.getElementById(
+        "orderedFoodsTotal"
+    );
+// =========================================================
 // ELEMENT - ORDER PANEL
 // =========================================================
 const orderSummary =
@@ -71,9 +75,6 @@ const orderPanelToggle =
     document.getElementById(
         "orderPanelToggle"
     );
-// =========================================================
-// ELEMENT - ICON MÓN ĐANG PICK
-// =========================================================
 const pickedFoodButton =
     document.getElementById(
         "pickedFoodButton"
@@ -104,7 +105,7 @@ function formatCurrency(
 ) {
     return (
         Number(
-            value
+            value || 0
         ).toLocaleString(
             "vi-VN"
         )
@@ -143,7 +144,7 @@ function escapeHtml(
         );
 }
 // =========================================================
-// SET ORDER PANEL EXPANDED
+// MỞ / THU GỌN ORDER PANEL
 // =========================================================
 function setOrderPanelExpanded(
     expanded
@@ -157,9 +158,9 @@ function setOrderPanelExpanded(
         "expanded",
         expanded
     );
-    // =========================================
+    // =====================================================
     // HANDLE PHÍA TRÊN
-    // =========================================
+    // =====================================================
     if (
         orderPanelToggle
     ) {
@@ -180,9 +181,9 @@ function setOrderPanelExpanded(
                 "Mở rộng đơn hàng"
         );
     }
-    // =========================================
-    // ICON MÓN
-    // =========================================
+    // =====================================================
+    // ICON 🍽️
+    // =====================================================
     if (
         pickedFoodButton
     ) {
@@ -200,7 +201,7 @@ function setOrderPanelExpanded(
                 ?
                 "Thu gọn đơn hàng"
                 :
-                "Xem món đang chọn"
+                "Mở rộng đơn hàng"
         );
     }
 }
@@ -222,29 +223,25 @@ function toggleOrderPanel() {
     );
 }
 // =========================================================
-// CLICK HANDLE PHÍA TRÊN
+// CLICK HANDLE
 // =========================================================
 if (
     orderPanelToggle
 ) {
     orderPanelToggle.addEventListener(
         "click",
-        () => {
-            toggleOrderPanel();
-        }
+        toggleOrderPanel
     );
 }
 // =========================================================
-// CLICK ICON MÓN ĐANG PICK
+// CLICK ICON 🍽️
 // =========================================================
 if (
     pickedFoodButton
 ) {
     pickedFoodButton.addEventListener(
         "click",
-        () => {
-            toggleOrderPanel();
-        }
+        toggleOrderPanel
     );
 }
 // =========================================================
@@ -253,26 +250,22 @@ if (
 function switchTab(
     tabName
 ) {
-    // =========================================
+    // =====================================================
     // ACTIVE BUTTON
-    // =========================================
+    // =====================================================
     menuTabs.forEach(
         (
             button
         ) => {
-            const active =
-                button.dataset.tab
-                ===
-                tabName;
             button.classList.toggle(
                 "active",
-                active
+                button.dataset.tab === tabName
             );
         }
     );
-    // =========================================
+    // =====================================================
     // TAB GỌI MÓN
-    // =========================================
+    // =====================================================
     if (
         newOrderTab
     ) {
@@ -281,9 +274,9 @@ function switchTab(
             tabName === "newOrder"
         );
     }
-    // =========================================
+    // =====================================================
     // TAB MÓN ĐÃ ĐẶT
-    // =========================================
+    // =====================================================
     if (
         orderedTab
     ) {
@@ -292,18 +285,17 @@ function switchTab(
             tabName === "ordered"
         );
     }
-    // =========================================
-    // LOAD KHI MỞ TAB MÓN ĐÃ ĐẶT
-    // =========================================
+    // =====================================================
+    // MỞ TAB MÓN ĐÃ ĐẶT
+    // =====================================================
     if (
         tabName === "ordered"
     ) {
         loadOrderedFoods();
     }
-    // =========================================
+    // =====================================================
     // RỜI TAB GỌI MÓN
-    // THU ORDER PANEL
-    // =========================================
+    // =====================================================
     if (
         tabName !== "newOrder"
     ) {
@@ -373,7 +365,7 @@ foodCards.forEach(
             );
         }
         // =================================================
-        // GIẢM SỐ LƯỢNG
+        // NÚT -
         // =================================================
         if (
             btnMinus
@@ -406,7 +398,7 @@ foodCards.forEach(
             );
         }
         // =================================================
-        // TĂNG SỐ LƯỢNG
+        // NÚT +
         // =================================================
         if (
             btnPlus
@@ -435,7 +427,7 @@ foodCards.forEach(
             );
         }
         // =================================================
-        // NHẬP SỐ LƯỢNG
+        // NHẬP QUANTITY
         // =================================================
         if (
             quantityInput
@@ -462,16 +454,14 @@ foodCards.forEach(
             );
         }
         // =================================================
-        // GHI CHÚ
+        // NOTE
         // =================================================
         if (
             noteInput
         ) {
             noteInput.addEventListener(
                 "input",
-                () => {
-                    updateOrderSummary();
-                }
+                updateOrderSummary
             );
         }
     }
@@ -497,155 +487,151 @@ function updateCardSelectedState(
     );
 }
 // =========================================================
-// CẬP NHẬT ĐƠN HÀNG ĐANG PICK
+// CẬP NHẬT ĐƠN ĐANG PICK
 // =========================================================
 function updateOrderSummary() {
     let total =
         0;
-    let html =
+    let selectedHtml =
         "";
-    // Tổng số phần đang được pick
     let totalPickedQuantity =
         0;
     foodCards.forEach(
         (
             card
         ) => {
-        const checkbox =
-            card.querySelector(
-                ".food-checkbox"
-            );
-        const quantityInput =
-            card.querySelector(
-                ".quantity-input"
-            );
-        const noteInput =
-            card.querySelector(
-                ".note-input"
-            );
-        if (
-            !checkbox
-            ||
-            !quantityInput
-        ) {
-            return;
-        }
-        // =====================================
-        // CHƯA PICK MÓN
-        // =====================================
-        if (
-            !checkbox.checked
-        ) {
-            return;
-        }
-        // =====================================
-        // TÊN
-        // =====================================
-        const foodName =
-            card.dataset.name;
-        // =====================================
-        // GIÁ
-        // =====================================
-        const foodPrice =
-            Number(
-                card.dataset.price
-            );
-        // =====================================
-        // QUANTITY
-        // =====================================
-        let quantity =
-            parseInt(
-                quantityInput.value
-            );
-        if (
-            isNaN(
-                quantity
-            )
-            ||
-            quantity < 1
-        ) {
-            quantity =
-                1;
-        }
-        // =====================================
-        // CỘNG SỐ MÓN VÀO BADGE
-        // =====================================
-        totalPickedQuantity +=
-            quantity;
-        // =====================================
-        // NOTE
-        // =====================================
-        const note =
-            noteInput
-                ?
-                noteInput.value.trim()
-                :
+            const checkbox =
+                card.querySelector(
+                    ".food-checkbox"
+                );
+            const quantityInput =
+                card.querySelector(
+                    ".quantity-input"
+                );
+            const noteInput =
+                card.querySelector(
+                    ".note-input"
+                );
+            if (
+                !checkbox
+                ||
+                !quantityInput
+            ) {
+                return;
+            }
+            if (
+                !checkbox.checked
+            ) {
+                return;
+            }
+            // =================================================
+            // FOOD
+            // =================================================
+            const foodName =
+                card.dataset.name;
+            const foodPrice =
+                Number(
+                    card.dataset.price
+                    ||
+                    0
+                );
+            // =================================================
+            // QUANTITY
+            // =================================================
+            let quantity =
+                parseInt(
+                    quantityInput.value
+                );
+            if (
+                isNaN(
+                    quantity
+                )
+                ||
+                quantity < 1
+            ) {
+                quantity =
+                    1;
+            }
+            // =================================================
+            // BADGE ICON
+            // =================================================
+            totalPickedQuantity +=
+                quantity;
+            // =================================================
+            // NOTE
+            // =================================================
+            const note =
+                noteInput
+                    ?
+                    noteInput.value.trim()
+                    :
+                    "";
+            // =================================================
+            // TOTAL
+            // =================================================
+            const itemTotal =
+                foodPrice
+                *
+                quantity;
+            total +=
+                itemTotal;
+            // =================================================
+            // NOTE HTML
+            // =================================================
+            let noteHtml =
                 "";
-        // =====================================
-        // TOTAL ITEM
-        // =====================================
-        const itemTotal =
-            foodPrice
-            *
-            quantity;
-        total +=
-            itemTotal;
-        // =====================================
-        // NOTE HTML
-        // =====================================
-        let noteHtml =
-            "";
-        if (
-            note !== ""
-        ) {
-            noteHtml = `
-                <small>
-                    (${escapeHtml(
-                        note
-                    )})
-                </small>
+            if (
+                note !== ""
+            ) {
+                noteHtml = `
+                    <small>
+                        (${escapeHtml(
+                            note
+                        )})
+                    </small>
+                `;
+            }
+            // =================================================
+            // HTML
+            // =================================================
+            selectedHtml += `
+                <div class="selected-item">
+                    <span>
+                        ${escapeHtml(
+                            foodName
+                        )}
+                        x ${quantity}
+                        ${noteHtml}
+                    </span>
+                    <strong>
+                        ${formatCurrency(
+                            itemTotal
+                        )}
+                    </strong>
+                </div>
             `;
         }
-        // =====================================
-        // ITEM HTML
-        // =====================================
-        html += `
-            <div class="selected-item">
-                <span>
-                    ${escapeHtml(
-                        foodName
-                    )}
-                    x ${quantity}
-                    ${noteHtml}
-                </span>
-                <strong>
-                    ${formatCurrency(
-                        itemTotal
-                    )}
-                </strong>
-            </div>
-        `;
-    });
-    // =========================================
+    );
+    // =====================================================
     // DANH SÁCH
-    // =========================================
+    // =====================================================
     if (
         selectedItemsBox
     ) {
         if (
-            html === ""
+            selectedHtml === ""
         ) {
             selectedItemsBox.innerHTML =
                 "Chưa chọn món nào.";
         }
         else {
             selectedItemsBox.innerHTML =
-                html;
+                selectedHtml;
         }
     }
-    // =========================================
-    // TỔNG TIỀN
-    // =========================================
+    // =====================================================
+    // TOTAL
+    // =====================================================
     if (
         totalPriceBox
     ) {
@@ -654,9 +640,9 @@ function updateOrderSummary() {
                 total
             );
     }
-    // =========================================
-    // BADGE SỐ MÓN
-    // =========================================
+    // =====================================================
+    // BADGE ICON
+    // =====================================================
     if (
         pickedCount
     ) {
@@ -664,7 +650,6 @@ function updateOrderSummary() {
             String(
                 totalPickedQuantity
             );
-        // 0 thì ẩn badge
         pickedCount.classList.toggle(
             "hidden",
             totalPickedQuantity === 0
@@ -708,7 +693,7 @@ async function loadOrderedFoods() {
         const data =
             await response.json();
         console.log(
-            `Món đã đặt bàn ${DEFAULT_TABLE_NUMBER}:`,
+            `Món đã đặt Bàn ${DEFAULT_TABLE_NUMBER}:`,
             data
         );
         renderOrderedFoods(
@@ -737,6 +722,14 @@ async function loadOrderedFoods() {
             orderedTabCount.innerText =
                 "0";
         }
+        if (
+            orderedFoodsTotal
+        ) {
+            orderedFoodsTotal.innerText =
+                formatCurrency(
+                    0
+                );
+        }
     }
 }
 // =========================================================
@@ -752,9 +745,9 @@ function renderOrderedFoods(
     ) {
         return;
     }
-    // =========================================
-    // EMPTY
-    // =========================================
+    // =====================================================
+    // KHÔNG CÓ MÓN
+    // =====================================================
     if (
         !Array.isArray(
             items
@@ -775,11 +768,19 @@ function renderOrderedFoods(
             orderedTabCount.innerText =
                 "0";
         }
+        if (
+            orderedFoodsTotal
+        ) {
+            orderedFoodsTotal.innerText =
+                formatCurrency(
+                    0
+                );
+        }
         return;
     }
-    // =========================================
-    // TỔNG SỐ PHẦN ĐÃ ĐẶT
-    // =========================================
+    // =====================================================
+    // TỔNG SỐ PHẦN
+    // =====================================================
     const totalQuantity =
         items.reduce(
             (
@@ -808,9 +809,48 @@ function renderOrderedFoods(
                 totalQuantity
             );
     }
-    // =========================================
-    // SORT ITEM MỚI NHẤT TRƯỚC
-    // =========================================
+    // =====================================================
+    // TỔNG TIỀN MÓN ĐÃ ĐẶT
+    // =====================================================
+    const orderedTotal =
+        items.reduce(
+            (
+                total,
+                item
+            ) => {
+                const quantity =
+                    Number(
+                        item.quantity
+                        ||
+                        0
+                    );
+                const unitPrice =
+                    Number(
+                        item.unit_price
+                        ||
+                        0
+                    );
+                return (
+                    total
+                    +
+                    quantity
+                    *
+                    unitPrice
+                );
+            },
+            0
+        );
+    if (
+        orderedFoodsTotal
+    ) {
+        orderedFoodsTotal.innerText =
+            formatCurrency(
+                orderedTotal
+            );
+    }
+    // =====================================================
+    // MÓN MỚI NHẤT TRƯỚC
+    // =====================================================
     const sortedItems =
         [
             ...items
@@ -830,22 +870,25 @@ function renderOrderedFoods(
                 );
             }
         );
-    // =========================================
+    // =====================================================
     // BUILD HTML
-    // =========================================
+    // =====================================================
     const html =
         sortedItems
             .map(
                 (
                     item
                 ) => {
+                    // =========================================
+                    // STATUS
+                    // =========================================
                     const status =
                         getOrderedFoodStatus(
                             item
                         );
-                    // =================================
-                    // CHỈ CHỜ NẤU MỚI ĐƯỢC SỬA
-                    // =================================
+                    // =========================================
+                    // CHỈ CHỜ NẤU ĐƯỢC SỬA
+                    // =========================================
                     const canEdit =
                         Number(
                             item.cooking_status
@@ -858,9 +901,9 @@ function renderOrderedFoods(
                         item.delivered
                         !==
                         true;
-                    // =================================
+                    // =========================================
                     // NOTE
-                    // =================================
+                    // =========================================
                     let noteHtml =
                         "";
                     if (
@@ -881,9 +924,9 @@ function renderOrderedFoods(
                             </div>
                         `;
                     }
-                    // =================================
-                    // QUANTITY UI
-                    // =================================
+                    // =========================================
+                    // QUANTITY
+                    // =========================================
                     let quantityHtml =
                         "";
                     if (
@@ -948,9 +991,9 @@ function renderOrderedFoods(
                             </div>
                         `;
                     }
-                    // =================================
-                    // HTML MÓN
-                    // =================================
+                    // =========================================
+                    // ITEM
+                    // =========================================
                     return `
                         <div
                             class="ordered-food-item"
@@ -1001,9 +1044,9 @@ function renderOrderedFoods(
 function getOrderedFoodStatus(
     item
 ) {
-    // =========================================
+    // =====================================================
     // ĐÃ GIAO
-    // =========================================
+    // =====================================================
     if (
         item.delivered === true
         ||
@@ -1020,9 +1063,9 @@ function getOrderedFoodStatus(
                 "delivered"
         };
     }
-    // =========================================
-    // ĐÃ NẤU XONG
-    // =========================================
+    // =====================================================
+    // ĐÃ NẤU
+    // =====================================================
     if (
         Number(
             item.cooking_status
@@ -1037,9 +1080,9 @@ function getOrderedFoodStatus(
                 "cooked"
         };
     }
-    // =========================================
+    // =====================================================
     // ĐANG NẤU
-    // =========================================
+    // =====================================================
     if (
         Number(
             item.cooking_status
@@ -1054,9 +1097,9 @@ function getOrderedFoodStatus(
                 "cooking"
         };
     }
-    // =========================================
+    // =====================================================
     // CHỜ NẤU
-    // =========================================
+    // =====================================================
     return {
         text:
             "Chờ nấu",
@@ -1151,6 +1194,10 @@ async function updateOrderedQuantity(
             await loadOrderedFoods();
             return;
         }
+        // =================================================
+        // LOAD LẠI
+        // => tự tính lại tổng tiền
+        // =================================================
         await loadOrderedFoods();
     }
     catch (
@@ -1262,6 +1309,11 @@ async function deleteOrderedFood(
             await loadOrderedFoods();
             return;
         }
+        // =================================================
+        // LOAD LẠI
+        // MÓN ĐÃ XÓA KHÔNG CÒN TRONG ITEMS
+        // => TOTAL TỰ GIẢM
+        // =================================================
         await loadOrderedFoods();
     }
     catch (
@@ -1282,7 +1334,7 @@ async function deleteOrderedFood(
     }
 }
 // =========================================================
-// CLICK + / - / XÓA MÓN ĐÃ ĐẶT
+// EVENT + / - / DELETE MÓN ĐÃ ĐẶT
 // =========================================================
 if (
     orderedFoodsList
@@ -1292,9 +1344,9 @@ if (
         async (
             event
         ) => {
-            // =====================================
+            // =================================================
             // +
-            // =====================================
+            // =================================================
             const plusButton =
                 event.target.closest(
                     ".ordered-plus"
@@ -1316,9 +1368,9 @@ if (
                 );
                 return;
             }
-            // =====================================
+            // =================================================
             // -
-            // =====================================
+            // =================================================
             const minusButton =
                 event.target.closest(
                     ".ordered-minus"
@@ -1350,9 +1402,9 @@ if (
                 );
                 return;
             }
-            // =====================================
+            // =================================================
             // DELETE
-            // =====================================
+            // =================================================
             const deleteButton =
                 event.target.closest(
                     ".ordered-delete"
@@ -1386,9 +1438,9 @@ if (
     orderButton.addEventListener(
         "click",
         async () => {
-            // =====================================
+            // =================================================
             // TABLE
-            // =====================================
+            // =================================================
             const tableNumber =
                 Number(
                     tableNumberInput.value
@@ -1405,9 +1457,9 @@ if (
                 );
                 return;
             }
-            // =====================================
-            // DANH SÁCH MÓN
-            // =====================================
+            // =================================================
+            // SELECTED FOODS
+            // =================================================
             const selectedFoods =
                 [];
             foodCards.forEach(
@@ -1459,6 +1511,8 @@ if (
                             price:
                                 Number(
                                     card.dataset.price
+                                    ||
+                                    0
                                 ),
                             quantity:
                                 quantity,
@@ -1472,22 +1526,20 @@ if (
                     );
                 }
             );
-            // =====================================
+            // =================================================
             // CHƯA CHỌN MÓN
-            // =====================================
+            // =================================================
             if (
-                selectedFoods.length
-                ===
-                0
+                selectedFoods.length === 0
             ) {
                 alert(
                     "Bạn chưa chọn món nào."
                 );
                 return;
             }
-            // =====================================
+            // =================================================
             // ORDER DATA
-            // =====================================
+            // =================================================
             const orderData =
             {
                 tableNumber:
@@ -1499,9 +1551,9 @@ if (
                 "Order:",
                 orderData
             );
-            // =====================================
-            // KHÓA NÚT
-            // =====================================
+            // =================================================
+            // LOCK BUTTON
+            // =================================================
             orderButton.disabled =
                 true;
             orderButton.innerText =
@@ -1536,6 +1588,9 @@ if (
                     result =
                         {};
                 }
+                // =================================================
+                // ERROR
+                // =================================================
                 if (
                     !response.ok
                 ) {
@@ -1560,9 +1615,9 @@ if (
                     );
                     return;
                 }
-                // =================================
+                // =================================================
                 // RESET MENU
-                // =================================
+                // =================================================
                 foodCards.forEach(
                     (
                         card
@@ -1602,29 +1657,26 @@ if (
                         );
                     }
                 );
-                // =================================
-                // UPDATE PANEL
-                // =================================
+                // =================================================
+                // RESET PANEL
+                // =================================================
                 updateOrderSummary();
-                // =================================
-                // THU PANEL
-                // =================================
                 setOrderPanelExpanded(
                     false
                 );
-                // =================================
+                // =================================================
                 // LOAD MÓN ĐÃ ĐẶT
-                // =================================
+                // =================================================
                 await loadOrderedFoods();
-                // =================================
+                // =================================================
                 // CHUYỂN TAB
-                // =================================
+                // =================================================
                 switchTab(
                     "ordered"
                 );
-                // =================================
-                // ALERT
-                // =================================
+                // =================================================
+                // SUCCESS
+                // =================================================
                 alert(
                     "Đặt món thành công!"
                     +
@@ -1679,6 +1731,9 @@ let reconnectTimer =
 // CONNECT WEBSOCKET
 // =========================================================
 function connectDashboardWebSocket() {
+    // =====================================================
+    // ĐÃ CONNECT
+    // =====================================================
     if (
         dashboardSocket
         &&
@@ -1704,18 +1759,18 @@ function connectDashboardWebSocket() {
         new WebSocket(
             wsUrl
         );
-    // =========================================
+    // =====================================================
     // OPEN
-    // =========================================
+    // =====================================================
     dashboardSocket.onopen =
         () => {
             console.log(
                 "✓ WebSocket connected"
             );
         };
-    // =========================================
+    // =====================================================
     // MESSAGE
-    // =========================================
+    // =====================================================
     dashboardSocket.onmessage =
         async (
             event
@@ -1729,9 +1784,9 @@ function connectDashboardWebSocket() {
                     "WebSocket:",
                     data
                 );
-                // =================================
-                // CHỈ XỬ LÝ BÀN 1
-                // =================================
+                // =================================================
+                // CHỈ BÀN 1
+                // =================================================
                 if (
                     Number(
                         data.table
@@ -1741,6 +1796,9 @@ function connectDashboardWebSocket() {
                 ) {
                     return;
                 }
+                // =================================================
+                // EVENT REFRESH
+                // =================================================
                 const refreshEvents =
                     [
                         "order_created",
@@ -1768,9 +1826,9 @@ function connectDashboardWebSocket() {
                 );
             }
         };
-    // =========================================
+    // =====================================================
     // CLOSE
-    // =========================================
+    // =====================================================
     dashboardSocket.onclose =
         () => {
             console.log(
@@ -1789,9 +1847,9 @@ function connectDashboardWebSocket() {
                     3000
                 );
         };
-    // =========================================
+    // =====================================================
     // ERROR
-    // =========================================
+    // =====================================================
     dashboardSocket.onerror =
         (
             error
@@ -1805,13 +1863,13 @@ function connectDashboardWebSocket() {
 // =========================================================
 // KHỞI TẠO
 // =========================================================
-// Đơn đang chọn
+// Hiển thị đơn đang pick
 updateOrderSummary();
 // Mặc định tab gọi món
 switchTab(
     "newOrder"
 );
-// Mặc định panel thu gọn
+// Panel mobile mặc định thu gọn
 setOrderPanelExpanded(
     false
 );
