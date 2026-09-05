@@ -14,10 +14,8 @@ body {
         Arial,
         Helvetica,
         sans-serif;
-    background:
-        #f5f6fa;
-    color:
-        #222;
+    background: #f5f6fa;
+    color: #222;
 }
 /* ============================================
    HEADER
@@ -29,36 +27,27 @@ body {
             #ff7043,
             #ff9800
         );
-    color:
-        white;
-    text-align:
-        center;
+    color: white;
+    text-align: center;
     padding:
         28px
         16px;
 }
 .header h1 {
-    font-size:
-        32px;
-    margin-bottom:
-        8px;
+    font-size: 32px;
+    margin-bottom: 8px;
 }
 .header p {
-    font-size:
-        16px;
-    opacity:
-        0.95;
+    font-size: 16px;
+    opacity: 0.95;
 }
 /* ============================================
    MAIN
 ============================================ */
 .main-container {
-    width:
-        100%;
-    max-width:
-        1400px;
-    margin:
-        0 auto;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
     padding:
         16px
         24px
@@ -68,166 +57,112 @@ body {
    SỐ BÀN
 ============================================ */
 .table-number-top {
-    display:
-        flex;
-    align-items:
-        center;
-    width:
-        fit-content;
-    gap:
-        8px;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    gap: 8px;
     padding:
         6px
         10px;
-    margin-bottom:
-        14px;
-    background:
-        white;
-    border-radius:
-        9px;
+    margin-bottom: 14px;
+    background: white;
+    border-radius: 9px;
     box-shadow:
         0 2px 8px
         rgba(0, 0, 0, 0.10);
 }
 .table-number-top label {
-    font-size:
-        15px;
-    font-weight:
-        bold;
-    white-space:
-        nowrap;
+    font-size: 15px;
+    font-weight: bold;
+    white-space: nowrap;
 }
 #tableNumber {
-    width:
-        60px;
-    height:
-        34px;
+    width: 60px;
+    height: 34px;
     border:
         2px solid
         #ff9800;
-    border-radius:
-        7px;
-    background:
-        #fff3e0;
-    color:
-        #e65100;
-    font-size:
-        18px;
-    font-weight:
-        bold;
-    text-align:
-        center;
-    outline:
-        none;
+    border-radius: 7px;
+    background: #fff3e0;
+    color: #e65100;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    outline: none;
 }
 #tableNumber:read-only {
-    cursor:
-        default;
+    cursor: default;
 }
 #tableNumber::-webkit-inner-spin-button,
 #tableNumber::-webkit-outer-spin-button {
-    -webkit-appearance:
-        none;
-    margin:
-        0;
+    -webkit-appearance: none;
+    margin: 0;
 }
 /* ============================================
-   THANH TAB
+   TABS
 ============================================ */
 .menu-tabs {
-    display:
-        grid;
+    display: grid;
     grid-template-columns:
         1fr
         1fr;
-    gap:
-        6px;
-    width:
-        100%;
-    margin-bottom:
-        20px;
-    padding:
-        5px;
-    background:
-        white;
-    border-radius:
-        14px;
+    gap: 6px;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 5px;
+    background: white;
+    border-radius: 14px;
     box-shadow:
         0 2px 10px
         rgba(0, 0, 0, 0.08);
 }
 .menu-tab {
-    display:
-        flex;
-    align-items:
-        center;
-    justify-content:
-        center;
-    gap:
-        6px;
-    min-height:
-        48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    min-height: 48px;
     padding:
         11px
         16px;
-    border:
-        none;
-    border-radius:
-        10px;
-    background:
-        transparent;
-    color:
-        #555;
-    font-size:
-        16px;
-    font-weight:
-        bold;
-    cursor:
-        pointer;
+    border: none;
+    border-radius: 10px;
+    background: transparent;
+    color: #555;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
     transition:
         background 0.2s,
         color 0.2s;
 }
 .menu-tab:hover {
-    background:
-        #fff3e0;
+    background: #fff3e0;
 }
 .menu-tab.active {
-    background:
-        #ff9800;
-    color:
-        white;
+    background: #ff9800;
+    color: white;
 }
 .menu-tab.active:hover {
-    background:
-        #fb8c00;
+    background: #fb8c00;
 }
 /* ============================================
-   BADGE SỐ MÓN ĐÃ ĐẶT
+   BADGE TAB
 ============================================ */
 #orderedTabCount {
-    display:
-        inline-flex;
-    align-items:
-        center;
-    justify-content:
-        center;
-    min-width:
-        24px;
-    height:
-        24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 24px;
+    height: 24px;
     padding:
-        0 6px;
-    border-radius:
-        20px;
-    background:
-        #eeeeee;
-    color:
-        #555;
-    font-size:
-        12px;
-    font-weight:
-        bold;
+        0
+        6px;
+    border-radius: 20px;
+    background: #eeeeee;
+    color: #555;
+    font-size: 12px;
+    font-weight: bold;
 }
 .menu-tab.active #orderedTabCount {
     background:
@@ -237,69 +172,52 @@ body {
             255,
             0.25
         );
-    color:
-        white;
+    color: white;
 }
 /* ============================================
-   TAB CONTENT
+   TAB PANEL
 ============================================ */
 .tab-panel {
-    display:
-        none;
+    display: none;
 }
 .tab-panel.active {
-    display:
-        block;
+    display: block;
 }
 /* ============================================
-   LAYOUT GỌI MÓN - DESKTOP
+   ORDER LAYOUT
 ============================================ */
 .order-layout {
-    display:
-        grid;
+    display: grid;
     grid-template-columns:
         minmax(0, 1fr)
         360px;
-    gap:
-        24px;
-    align-items:
-        start;
+    gap: 24px;
+    align-items: start;
 }
 /* ============================================
-   MENU AREA
+   MENU
 ============================================ */
 .menu-area {
-    width:
-        100%;
-    min-width:
-        0;
+    width: 100%;
+    min-width: 0;
 }
-/* ============================================
-   DANH SÁCH MÓN
-============================================ */
 .menu-container {
-    display:
-        grid;
+    display: grid;
     grid-template-columns:
         repeat(
             auto-fill,
             minmax(280px, 1fr)
         );
-    gap:
-        20px;
+    gap: 20px;
 }
 /* ============================================
-   CARD MÓN ĂN
+   FOOD CARD
 ============================================ */
 .food-card {
-    width:
-        100%;
-    background:
-        white;
-    border-radius:
-        16px;
-    overflow:
-        hidden;
+    width: 100%;
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
     box-shadow:
         0 4px 14px
         rgba(0, 0, 0, 0.12);
@@ -320,709 +238,516 @@ body {
         #43a047;
 }
 /* ============================================
-   NỘI DUNG CARD
+   FOOD CONTENT
 ============================================ */
 .food-content {
-    padding:
-        16px;
+    padding: 16px;
 }
 /* ============================================
-   TIÊU ĐỀ MÓN
+   FOOD TITLE
 ============================================ */
 .food-title-row {
-    display:
-        grid;
+    display: grid;
     grid-template-columns:
         24px
         80px
         minmax(0, 1fr);
-    align-items:
-        center;
-    gap:
-        10px;
-    margin-bottom:
-        12px;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
 }
 .food-checkbox {
-    width:
-        20px;
-    height:
-        20px;
-    cursor:
-        pointer;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
 }
 .food-title-row img {
-    display:
-        block;
-    width:
-        80px;
-    height:
-        55px;
-    object-fit:
-        cover;
-    border-radius:
-        8px;
+    display: block;
+    width: 80px;
+    height: 55px;
+    object-fit: cover;
+    border-radius: 8px;
 }
 .food-title-row h3 {
-    min-width:
-        0;
-    font-size:
-        18px;
-    line-height:
-        1.25;
+    min-width: 0;
+    font-size: 18px;
+    line-height: 1.25;
 }
 /* ============================================
-   MÔ TẢ
+   DESCRIPTION
 ============================================ */
 .food-desc {
-    min-height:
-        40px;
-    margin-bottom:
-        10px;
-    color:
-        #666;
-    font-size:
-        14px;
-    line-height:
-        1.5;
+    min-height: 40px;
+    margin-bottom: 10px;
+    color: #666;
+    font-size: 14px;
+    line-height: 1.5;
 }
 /* ============================================
-   GIÁ
+   PRICE
 ============================================ */
 .food-price {
-    margin-bottom:
-        14px;
-    color:
-        #e53935;
-    font-size:
-        18px;
-    font-weight:
-        bold;
+    margin-bottom: 14px;
+    color: #e53935;
+    font-size: 18px;
+    font-weight: bold;
 }
 /* ============================================
-   SỐ LƯỢNG
+   QUANTITY
 ============================================ */
 .quantity-control {
-    display:
-        flex;
-    align-items:
-        center;
-    gap:
-        10px;
-    margin-bottom:
-        14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
 }
 .quantity-control button {
-    width:
-        40px;
-    height:
-        40px;
-    border:
-        none;
-    border-radius:
-        10px;
-    background:
-        #1976d2;
-    color:
-        white;
-    font-size:
-        21px;
-    cursor:
-        pointer;
-    transition:
-        background 0.2s;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    background: #1976d2;
+    color: white;
+    font-size: 21px;
+    cursor: pointer;
+    transition: background 0.2s;
 }
 .quantity-control button:hover {
-    background:
-        #0d47a1;
+    background: #0d47a1;
 }
 .quantity-input {
-    width:
-        70px;
-    height:
-        40px;
+    width: 70px;
+    height: 40px;
     border:
         1px solid
         #ccc;
-    border-radius:
-        9px;
-    font-size:
-        16px;
-    text-align:
-        center;
-    outline:
-        none;
+    border-radius: 9px;
+    font-size: 16px;
+    text-align: center;
+    outline: none;
 }
 /* ============================================
-   GHI CHÚ
+   NOTE
 ============================================ */
 .note-control {
-    width:
-        100%;
+    width: 100%;
 }
 .note-control label {
-    display:
-        block;
-    margin-bottom:
-        6px;
-    color:
-        #555;
-    font-size:
-        14px;
-    font-weight:
-        bold;
+    display: block;
+    margin-bottom: 6px;
+    color: #555;
+    font-size: 14px;
+    font-weight: bold;
 }
 .note-input {
-    width:
-        100%;
-    height:
-        42px;
+    width: 100%;
+    height: 42px;
     padding:
         8px
         10px;
     border:
         1px solid
         #ccc;
-    border-radius:
-        9px;
-    font-size:
-        14px;
-    outline:
-        none;
+    border-radius: 9px;
+    font-size: 14px;
+    outline: none;
 }
 .note-input:focus {
-    border-color:
-        #1976d2;
+    border-color: #1976d2;
     box-shadow:
         0 0 0 2px
         rgba(25, 118, 210, 0.10);
 }
 /* ============================================
-   ĐƠN HÀNG - DESKTOP
+   ORDER SUMMARY DESKTOP
 ============================================ */
 .order-summary {
-    width:
-        100%;
-    height:
-        fit-content;
-    position:
-        sticky;
-    top:
-        20px;
-    padding:
-        20px;
-    background:
-        white;
-    border-radius:
-        16px;
+    width: 100%;
+    height: fit-content;
+    position: sticky;
+    top: 20px;
+    padding: 20px;
+    background: white;
+    border-radius: 16px;
     box-shadow:
         0 4px 14px
         rgba(0, 0, 0, 0.12);
 }
 .order-summary h2 {
-    margin-bottom:
-        16px;
-    text-align:
-        center;
-    font-size:
-        24px;
+    margin-bottom: 16px;
+    text-align: center;
+    font-size: 24px;
 }
 /* ============================================
-   NÚT MỞ RỘNG ORDER
-   ẨN TRÊN DESKTOP
+   EXPAND HANDLE
+   ẨN TRÊN PC
 ============================================ */
 .order-panel-toggle {
-    display:
-        none;
+    display: none;
 }
 /* ============================================
-   DANH SÁCH MÓN ĐANG CHỌN
+   SELECTED ITEMS
 ============================================ */
 .selected-items {
-    min-height:
-        120px;
-    max-height:
-        320px;
-    overflow-y:
-        auto;
-    overflow-x:
-        hidden;
-    overscroll-behavior:
-        contain;
-    padding:
-        12px;
-    margin-bottom:
-        16px;
-    background:
-        #f7f7f7;
-    border-radius:
-        12px;
-    font-size:
-        14px;
-    line-height:
-        1.5;
+    min-height: 120px;
+    max-height: 320px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    overscroll-behavior: contain;
+    padding: 12px;
+    margin-bottom: 16px;
+    background: #f7f7f7;
+    border-radius: 12px;
+    font-size: 14px;
+    line-height: 1.5;
 }
 .selected-item {
-    display:
-        flex;
-    justify-content:
-        space-between;
-    align-items:
-        flex-start;
-    gap:
-        10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
     padding:
-        9px 0;
+        9px
+        0;
     border-bottom:
         1px dashed
         #ddd;
 }
 .selected-item:last-child {
-    border-bottom:
-        none;
+    border-bottom: none;
 }
 .selected-item span {
-    flex:
-        1;
-    min-width:
-        0;
-    word-break:
-        break-word;
+    flex: 1;
+    min-width: 0;
+    word-break: break-word;
 }
 .selected-item strong {
-    flex-shrink:
-        0;
-    white-space:
-        nowrap;
+    flex-shrink: 0;
+    white-space: nowrap;
 }
 /* ============================================
-   SCROLLBAR ĐƠN HÀNG
+   SCROLLBAR
 ============================================ */
 .selected-items::-webkit-scrollbar {
-    width:
-        6px;
+    width: 6px;
 }
 .selected-items::-webkit-scrollbar-track {
-    background:
-        transparent;
+    background: transparent;
 }
 .selected-items::-webkit-scrollbar-thumb {
-    background:
-        #cccccc;
-    border-radius:
-        10px;
-}
-.selected-items::-webkit-scrollbar-thumb:hover {
-    background:
-        #aaaaaa;
+    background: #cccccc;
+    border-radius: 10px;
 }
 /* ============================================
-   TỔNG TIỀN
+   TOTAL
 ============================================ */
 .total-row {
-    display:
-        flex;
-    justify-content:
-        space-between;
-    align-items:
-        center;
-    gap:
-        10px;
-    margin-bottom:
-        18px;
-    font-size:
-        20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+    font-size: 20px;
 }
 #totalPrice {
-    color:
-        #e53935;
-    text-align:
-        right;
+    color: #e53935;
+    text-align: right;
 }
 /* ============================================
-   NÚT ĐẶT MÓN
+   ORDER ACTIONS
+============================================ */
+.order-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+}
+/* ============================================
+   PICKED FOOD BUTTON
+============================================ */
+.picked-food-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 54px;
+    height: 44px;
+    padding: 0;
+    border: none;
+    border-radius: 11px;
+    background: #f3f4f6;
+    cursor: pointer;
+    transition:
+        background 0.2s,
+        transform 0.15s;
+    -webkit-tap-highlight-color:
+        transparent;
+}
+.picked-food-button:hover {
+    background: #e8eaed;
+}
+.picked-food-button:active {
+    transform:
+        scale(0.96);
+}
+/* ============================================
+   FOOD ICON
+============================================ */
+.picked-food-icon {
+    display: block;
+    font-size: 25px;
+    line-height: 1;
+}
+/* ============================================
+   PICKED COUNT BADGE
+============================================ */
+.picked-count {
+    position: absolute;
+    top: -7px;
+    right: -6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 22px;
+    height: 22px;
+    padding:
+        0
+        6px;
+    border:
+        2px solid
+        white;
+    border-radius: 999px;
+    background: #ff7043;
+    color: white;
+    font-size: 11px;
+    font-weight: bold;
+    line-height: 1;
+    box-shadow:
+        0 2px 5px
+        rgba(0, 0, 0, 0.16);
+}
+.picked-count.hidden {
+    display: none;
+}
+/* ============================================
+   ORDER BUTTON
 ============================================ */
 #orderButton {
-    width:
-        100%;
+    width: auto;
+    min-width: 150px;
+    height: 44px;
+    margin-left: auto;
     padding:
-        14px;
-    border:
-        none;
-    border-radius:
-        12px;
-    background:
-        #43a047;
-    color:
-        white;
-    font-size:
-        17px;
-    font-weight:
-        bold;
-    cursor:
-        pointer;
+        0
+        24px;
+    border: none;
+    border-radius: 11px;
+    background: #43a047;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
     transition:
         background 0.2s,
         opacity 0.2s;
 }
 #orderButton:hover {
-    background:
-        #2e7d32;
+    background: #2e7d32;
 }
 #orderButton:disabled {
-    opacity:
-        0.6;
-    cursor:
-        not-allowed;
+    opacity: 0.6;
+    cursor: not-allowed;
 }
 /* =========================================================
-   TAB MÓN ĐÃ ĐẶT
+   ORDERED FOODS
 ========================================================= */
 .ordered-foods-section {
-    width:
-        100%;
-    padding:
-        22px;
-    background:
-        white;
-    border-radius:
-        16px;
+    width: 100%;
+    padding: 22px;
+    background: white;
+    border-radius: 16px;
     box-shadow:
         0 4px 14px
         rgba(0, 0, 0, 0.10);
 }
 /* ============================================
-   HEADER MÓN ĐÃ ĐẶT
+   ORDERED HEADER
 ============================================ */
 .ordered-foods-header {
-    display:
-        flex;
-    justify-content:
-        space-between;
-    align-items:
-        center;
-    gap:
-        12px;
-    margin-bottom:
-        18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
 }
 .ordered-foods-header h2 {
-    margin:
-        0;
-    font-size:
-        24px;
-    color:
-        #222;
+    margin: 0;
+    font-size: 24px;
 }
 #orderedFoodsCount {
-    flex-shrink:
-        0;
+    flex-shrink: 0;
     padding:
         6px
         12px;
-    border-radius:
-        20px;
-    background:
-        #fff3e0;
-    color:
-        #e65100;
-    font-size:
-        13px;
-    font-weight:
-        bold;
+    border-radius: 20px;
+    background: #fff3e0;
+    color: #e65100;
+    font-size: 13px;
+    font-weight: bold;
 }
 /* ============================================
-   DANH SÁCH MÓN ĐÃ ĐẶT
+   ORDERED LIST
 ============================================ */
 .ordered-foods-list {
-    display:
-        flex;
-    flex-direction:
-        column;
-    gap:
-        12px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 /* ============================================
-   MỘT MÓN ĐÃ ĐẶT
+   ORDERED ITEM
 ============================================ */
 .ordered-food-item {
-    width:
-        100%;
-    padding:
-        15px;
+    width: 100%;
+    padding: 15px;
     border:
         1px solid
         #eeeeee;
-    border-radius:
-        13px;
-    background:
-        #fafafa;
-    transition:
-        box-shadow 0.2s,
-        border-color 0.2s;
-}
-.ordered-food-item:hover {
-    border-color:
-        #dddddd;
-    box-shadow:
-        0 2px 8px
-        rgba(0, 0, 0, 0.06);
+    border-radius: 13px;
+    background: #fafafa;
 }
 .ordered-food-main {
-    display:
-        flex;
-    justify-content:
-        space-between;
-    align-items:
-        flex-start;
-    gap:
-        12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
 }
 .ordered-food-info {
-    flex:
-        1;
-    min-width:
-        0;
+    flex: 1;
+    min-width: 0;
 }
 .ordered-food-name {
-    margin-bottom:
-        7px;
-    color:
-        #222;
-    font-size:
-        17px;
-    font-weight:
-        bold;
-    word-break:
-        break-word;
+    margin-bottom: 7px;
+    font-size: 17px;
+    font-weight: bold;
 }
 .ordered-food-quantity {
-    color:
-        #666;
-    font-size:
-        14px;
+    color: #666;
+    font-size: 14px;
 }
 /* ============================================
-   TRẠNG THÁI
+   STATUS
 ============================================ */
 .food-status {
-    display:
-        inline-flex;
-    align-items:
-        center;
-    justify-content:
-        center;
-    flex-shrink:
-        0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
     padding:
         6px
         10px;
-    border-radius:
-        20px;
-    font-size:
-        12px;
-    font-weight:
-        bold;
-    white-space:
-        nowrap;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    white-space: nowrap;
 }
-/* Chờ nấu */
 .food-status.waiting {
-    background:
-        #eeeeee;
-    color:
-        #555;
+    background: #eeeeee;
+    color: #555;
 }
-/* Đang nấu */
 .food-status.cooking {
-    background:
-        #fff3e0;
-    color:
-        #ef6c00;
+    background: #fff3e0;
+    color: #ef6c00;
 }
-/* Đã nấu */
 .food-status.cooked {
-    background:
-        #e8f5e9;
-    color:
-        #2e7d32;
+    background: #e8f5e9;
+    color: #2e7d32;
 }
-/* Đã giao */
 .food-status.delivered {
-    background:
-        #e3f2fd;
-    color:
-        #1565c0;
+    background: #e3f2fd;
+    color: #1565c0;
 }
 /* ============================================
-   GHI CHÚ MÓN ĐÃ ĐẶT
+   ORDERED NOTE
 ============================================ */
 .ordered-food-note {
-    margin-top:
-        9px;
-    padding-top:
-        9px;
+    margin-top: 9px;
+    padding-top: 9px;
     border-top:
         1px dashed
         #dddddd;
-    color:
-        #777;
-    font-size:
-        13px;
-    line-height:
-        1.4;
+    color: #777;
+    font-size: 13px;
 }
 /* ============================================
-   CHỈNH SỐ LƯỢNG MÓN ĐÃ ĐẶT
+   ORDER EDIT
 ============================================ */
 .ordered-edit-row {
-    display:
-        flex;
-    align-items:
-        center;
-    gap:
-        9px;
-    margin-top:
-        11px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-top: 11px;
 }
 .ordered-minus,
 .ordered-plus {
-    display:
-        inline-flex;
-    align-items:
-        center;
-    justify-content:
-        center;
-    width:
-        38px;
-    height:
-        38px;
-    flex-shrink:
-        0;
-    border:
-        none;
-    border-radius:
-        9px;
-    background:
-        #1976d2;
-    color:
-        white;
-    font-size:
-        20px;
-    cursor:
-        pointer;
-    transition:
-        background 0.2s,
-        opacity 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border: none;
+    border-radius: 9px;
+    background: #1976d2;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
 }
-.ordered-minus:hover,
-.ordered-plus:hover {
-    background:
-        #0d47a1;
-}
-.ordered-minus:disabled,
-.ordered-plus:disabled {
-    opacity:
-        0.5;
-    cursor:
-        not-allowed;
+.ordered-minus:disabled {
+    opacity: 0.5;
 }
 .ordered-current-quantity {
-    display:
-        inline-flex;
-    align-items:
-        center;
-    justify-content:
-        center;
-    min-width:
-        46px;
-    height:
-        38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 46px;
+    height: 38px;
     padding:
-        0 8px;
+        0
+        8px;
     border:
         1px solid
         #dddddd;
-    border-radius:
-        9px;
-    background:
-        white;
-    color:
-        #222;
-    font-size:
-        15px;
-    font-weight:
-        bold;
+    border-radius: 9px;
+    background: white;
+    font-weight: bold;
 }
-/* ============================================
-   XÓA MÓN ĐÃ ĐẶT
-============================================ */
 .ordered-delete {
-    height:
-        38px;
-    margin-left:
-        auto;
+    height: 38px;
+    margin-left: auto;
     padding:
-        0 14px;
-    border:
-        none;
-    border-radius:
-        9px;
-    background:
-        #ffebee;
-    color:
-        #c62828;
-    font-size:
+        0
         14px;
-    font-weight:
-        bold;
-    cursor:
-        pointer;
-    transition:
-        background 0.2s,
-        color 0.2s;
-}
-.ordered-delete:hover {
-    background:
-        #ffcdd2;
-    color:
-        #b71c1c;
+    border: none;
+    border-radius: 9px;
+    background: #ffebee;
+    color: #c62828;
+    font-weight: bold;
+    cursor: pointer;
 }
 /* ============================================
-   EMPTY
+   EMPTY / LOADING
 ============================================ */
-.ordered-foods-empty {
-    padding:
-        30px
-        14px;
-    border-radius:
-        12px;
-    background:
-        #f7f7f7;
-    color:
-        #777;
-    font-size:
-        14px;
-    text-align:
-        center;
-}
-/* ============================================
-   LOADING
-============================================ */
+.ordered-foods-empty,
 .ordered-foods-loading {
     padding:
         30px
         14px;
-    border-radius:
-        12px;
-    background:
-        #f7f7f7;
-    color:
-        #777;
-    font-size:
-        14px;
-    text-align:
-        center;
+    border-radius: 12px;
+    background: #f7f7f7;
+    color: #777;
+    font-size: 14px;
+    text-align: center;
 }
 /* =========================================================
    TABLET
@@ -1033,20 +758,15 @@ body {
             1fr;
     }
     .order-summary {
-        position:
-            static;
+        position: static;
     }
 }
 /* =========================================================
    MOBILE
 ========================================================= */
 @media (max-width: 600px) {
-    /* ========================================
-       BODY
-    ======================================== */
     body {
-        overflow-x:
-            hidden;
+        overflow-x: hidden;
     }
     /* ========================================
        HEADER
@@ -1057,12 +777,10 @@ body {
             14px;
     }
     .header h1 {
-        font-size:
-            28px;
+        font-size: 28px;
     }
     .header p {
-        font-size:
-            16px;
+        font-size: 16px;
     }
     /* ========================================
        MAIN
@@ -1074,65 +792,38 @@ body {
             20px;
     }
     /* ========================================
-       SỐ BÀN
+       TABLE NUMBER
     ======================================== */
     .table-number-top {
-        margin-top:
-            -6px;
-        margin-bottom:
-            12px;
+        margin-top: -6px;
+        margin-bottom: 12px;
         padding:
             5px
             8px;
-        border-radius:
-            8px;
     }
     .table-number-top label {
-        font-size:
-            14px;
+        font-size: 14px;
     }
     #tableNumber {
-        width:
-            52px;
-        height:
-            31px;
-        font-size:
-            16px;
+        width: 52px;
+        height: 31px;
+        font-size: 16px;
     }
     /* ========================================
-       TAB
+       TABS
     ======================================== */
     .menu-tabs {
-        position:
-            sticky;
-        top:
-            0;
-        z-index:
-            500;
-        margin-bottom:
-            16px;
-        border-radius:
-            12px;
-        box-shadow:
-            0 3px 10px
-            rgba(0, 0, 0, 0.12);
+        position: sticky;
+        top: 0;
+        z-index: 500;
+        margin-bottom: 16px;
     }
     .menu-tab {
-        min-height:
-            46px;
+        min-height: 46px;
         padding:
             10px
             6px;
-        font-size:
-            15px;
-    }
-    #orderedTabCount {
-        min-width:
-            22px;
-        height:
-            22px;
-        font-size:
-            11px;
+        font-size: 15px;
     }
     /* ========================================
        MENU
@@ -1140,62 +831,37 @@ body {
     .menu-container {
         grid-template-columns:
             1fr;
-        gap:
-            20px;
-    }
-    /* ========================================
-       CARD
-    ======================================== */
-    .food-card {
-        border-radius:
-            16px;
+        gap: 20px;
     }
     .food-content {
-        padding:
-            18px;
+        padding: 18px;
     }
     .food-title-row {
         grid-template-columns:
             24px
             72px
             minmax(0, 1fr);
-        gap:
-            8px;
+        gap: 8px;
     }
     .food-title-row img {
-        width:
-            72px;
-        height:
-            52px;
-    }
-    .food-title-row h3 {
-        font-size:
-            18px;
+        width: 72px;
+        height: 52px;
     }
     /* =====================================================
-       ORDER PANEL CỐ ĐỊNH Ở ĐÁY
+       ORDER PANEL FIXED
     ====================================================== */
     .order-summary {
-        position:
-            fixed;
-        left:
-            10px;
-        right:
-            10px;
-        bottom:
-            0;
-        top:
-            auto;
-        z-index:
-            1000;
-        width:
-            auto;
-        height:
-            auto;
-        margin:
-            0;
+        position: fixed;
+        left: 10px;
+        right: 10px;
+        bottom: 0;
+        top: auto;
+        z-index: 1000;
+        width: auto;
+        height: auto;
+        margin: 0;
         padding:
-            7px
+            5px
             14px
             calc(
                 12px
@@ -1207,278 +873,224 @@ body {
             20px
             0
             0;
-        background:
-            white;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        max-height: 245px;
         box-shadow:
             0 -5px 22px
             rgba(0, 0, 0, 0.20);
-        display:
-            flex;
-        flex-direction:
-            column;
-        overflow:
-            hidden;
-        /*
-            PANEL THU GỌN
-        */
-        max-height:
-            245px;
         transition:
             max-height 0.3s ease,
             box-shadow 0.3s ease;
     }
     /* ========================================
-       PANEL MỞ RỘNG
+       EXPANDED
     ======================================== */
     .order-summary.expanded {
-        max-height:
-            72dvh;
+        max-height: 72dvh;
         box-shadow:
             0 -8px 32px
             rgba(0, 0, 0, 0.27);
     }
     /* ========================================
-       NÚT MŨI TÊN
+       HANDLE BUTTON
     ======================================== */
     .order-panel-toggle {
-        display:
-            flex;
-        align-items:
-            center;
-        justify-content:
-            center;
-        align-self:
-            center;
-        flex-shrink:
-            0;
-        width:
-            70px;
-        height:
-            25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-self: center;
+        flex-shrink: 0;
+        width: 80px;
+        height: 18px;
         margin:
-            -3px
+            -1px
             auto
-            0;
-        padding:
-            0;
-        border:
-            none;
-        background:
-            transparent;
-        color:
-            #555;
-        cursor:
-            pointer;
+            1px;
+        padding: 0;
+        border: none;
+        background: transparent;
+        cursor: pointer;
         -webkit-tap-highlight-color:
             transparent;
     }
     /* ========================================
-       MŨI TÊN
+       HANDLE
     ======================================== */
-    .order-panel-arrow {
-        display:
-            block;
-        font-size:
-            19px;
-        line-height:
-            1;
+    .expand-handle {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2px;
         transition:
-            transform 0.3s ease;
+            transform 0.25s ease;
     }
-    /*
-        Mặc định ▲
-        Khi mở panel sẽ quay thành ▼
-    */
+    .expand-handle span {
+        display: block;
+        height: 2px;
+        border-radius: 999px;
+        background: #c7cbd1;
+    }
+    .expand-handle span:nth-child(1) {
+        width: 14px;
+    }
+    .expand-handle span:nth-child(2) {
+        width: 24px;
+    }
+    .expand-handle span:nth-child(3) {
+        width: 34px;
+    }
+    /* Khi mở thì đảo chiều */
     .order-summary.expanded
-    .order-panel-arrow {
+    .expand-handle {
         transform:
             rotate(180deg);
     }
     /* ========================================
-       TIÊU ĐỀ ĐƠN HÀNG
+       ORDER TITLE
     ======================================== */
     .order-summary h2 {
-        flex-shrink:
-            0;
-        margin-bottom:
-            7px;
-        font-size:
-            20px;
-        line-height:
-            1.2;
+        flex-shrink: 0;
+        margin-bottom: 7px;
+        font-size: 20px;
+        line-height: 1.2;
     }
     /* ========================================
-       DANH SÁCH MÓN - PANEL THU GỌN
+       SELECTED ITEMS COLLAPSED
     ======================================== */
     .order-summary
     .selected-items {
-        min-height:
-            0;
-        max-height:
-            72px;
-        flex-shrink:
-            1;
-        overflow-y:
-            auto;
-        overflow-x:
-            hidden;
-        overscroll-behavior:
-            contain;
-        margin-bottom:
-            8px;
+        min-height: 0;
+        max-height: 72px;
+        flex-shrink: 1;
+        overflow-y: auto;
+        margin-bottom: 8px;
         padding:
             8px
             10px;
-        background:
-            #f7f7f7;
-        border-radius:
-            10px;
     }
-    /* ========================================
-       MÓN TRONG PANEL MOBILE
-    ======================================== */
     .order-summary
     .selected-item {
         padding:
             6px
             0;
-        font-size:
-            13px;
+        font-size: 13px;
     }
     /* ========================================
-       KHI PANEL MỞ RỘNG
+       SELECTED ITEMS EXPANDED
     ======================================== */
     .order-summary.expanded
     .selected-items {
-        min-height:
-            130px;
+        min-height: 130px;
         max-height:
             calc(
                 72dvh
                 -
                 175px
             );
-        flex:
-            1;
-        overflow-y:
-            auto;
+        flex: 1;
+        overflow-y: auto;
     }
     /* ========================================
-       TỔNG TIỀN
+       TOTAL
     ======================================== */
     .order-summary
     .total-row {
-        flex-shrink:
-            0;
-        margin-bottom:
-            8px;
-        font-size:
-            17px;
+        flex-shrink: 0;
+        margin-bottom: 8px;
+        font-size: 17px;
     }
     .order-summary
     #totalPrice {
-        font-size:
-            18px;
+        font-size: 18px;
     }
     /* ========================================
-       NÚT ĐẶT MÓN
+       ACTIONS
+    ======================================== */
+    .order-actions {
+        display: grid;
+        grid-template-columns:
+            54px
+            minmax(0, 1fr);
+        align-items: center;
+        gap: 9px;
+        width: 100%;
+        flex-shrink: 0;
+    }
+    /* ========================================
+       ICON
+    ======================================== */
+    .picked-food-button {
+        width: 54px;
+        height: 40px;
+        border-radius: 10px;
+    }
+    .picked-food-icon {
+        font-size: 23px;
+    }
+    .picked-count {
+        top: -7px;
+        right: -5px;
+        min-width: 21px;
+        height: 21px;
+        font-size: 11px;
+    }
+    /* ========================================
+       ORDER BUTTON
     ======================================== */
     .order-summary
     #orderButton {
-        flex-shrink:
-            0;
+        width: 100%;
+        min-width: 0;
+        height: 40px;
+        margin-left: 0;
         padding:
+            0
             12px;
-        font-size:
-            16px;
-        border-radius:
-            11px;
+        border-radius: 10px;
+        font-size: 15px;
     }
     /* ========================================
-       CHỪA KHÔNG GIAN DƯỚI MENU
-       ĐỂ CARD CUỐI KHÔNG BỊ PANEL CHE
+       CHỪA KHOẢNG DƯỚI MENU
     ======================================== */
     #newOrderTab {
-        padding-bottom:
-            255px;
+        padding-bottom: 255px;
     }
-    /* =====================================================
-       TAB MÓN ĐÃ ĐẶT
-    ====================================================== */
+    /* ========================================
+       ORDERED TAB
+    ======================================== */
     .ordered-foods-section {
-        padding:
-            17px;
-        border-radius:
-            15px;
-    }
-    .ordered-foods-header {
-        margin-bottom:
-            15px;
+        padding: 17px;
+        border-radius: 15px;
     }
     .ordered-foods-header h2 {
-        font-size:
-            21px;
-    }
-    #orderedFoodsCount {
-        padding:
-            5px
-            10px;
-        font-size:
-            12px;
+        font-size: 21px;
     }
     .ordered-food-item {
-        padding:
-            13px;
-    }
-    .ordered-food-main {
-        align-items:
-            center;
+        padding: 13px;
     }
     .ordered-food-name {
-        font-size:
-            16px;
+        font-size: 16px;
     }
     .food-status {
         padding:
             5px
             8px;
-        font-size:
-            11px;
-    }
-    .ordered-edit-row {
-        width:
-            100%;
-        gap:
-            8px;
-    }
-    .ordered-minus,
-    .ordered-plus {
-        width:
-            38px;
-        height:
-            38px;
-    }
-    .ordered-delete {
-        height:
-            38px;
-        padding:
-            0
-            13px;
+        font-size: 11px;
     }
 }
 /* =========================================================
-   MÀN HÌNH RẤT NHỎ
+   VERY SMALL MOBILE
 ========================================================= */
 @media (max-width: 380px) {
     .main-container {
-        padding-left:
-            10px;
-        padding-right:
-            10px;
+        padding-left: 10px;
+        padding-right: 10px;
     }
     .food-content {
-        padding:
-            14px;
+        padding: 14px;
     }
     .food-title-row {
         grid-template-columns:
@@ -1487,86 +1099,49 @@ body {
             minmax(0, 1fr);
     }
     .food-title-row img {
-        width:
-            60px;
-        height:
-            48px;
+        width: 60px;
+        height: 48px;
     }
     .food-title-row h3 {
-        font-size:
-            16px;
+        font-size: 16px;
     }
-    .quantity-control button {
-        width:
-            38px;
-        height:
-            38px;
-    }
-    .quantity-input {
-        width:
-            64px;
-        height:
-            38px;
-    }
-    /* TAB */
     .menu-tab {
-        font-size:
-            14px;
+        font-size: 14px;
     }
-    /* ORDER PANEL */
+    /* ORDER */
     .order-summary {
-        left:
-            6px;
-        right:
-            6px;
-        padding-left:
-            10px;
-        padding-right:
-            10px;
+        left: 6px;
+        right: 6px;
+        padding-left: 10px;
+        padding-right: 10px;
     }
     .order-summary h2 {
-        font-size:
-            18px;
+        font-size: 18px;
     }
-    .order-summary
-    .total-row {
-        font-size:
-            16px;
+    /* ICON */
+    .picked-food-button {
+        width: 48px;
     }
-    .order-summary
-    #totalPrice {
-        font-size:
-            17px;
+    .order-actions {
+        grid-template-columns:
+            48px
+            minmax(0, 1fr);
     }
-    /* MÓN ĐÃ ĐẶT */
+    /* ORDERED */
     .ordered-foods-section {
-        padding:
-            13px;
-    }
-    .ordered-foods-header {
-        align-items:
-            flex-start;
+        padding: 13px;
     }
     .ordered-foods-header h2 {
-        font-size:
-            19px;
+        font-size: 19px;
     }
     .ordered-food-main {
-        flex-direction:
-            column;
-        align-items:
-            flex-start;
-    }
-    .food-status {
-        margin-top:
-            2px;
+        flex-direction: column;
+        align-items: flex-start;
     }
     .ordered-edit-row {
-        flex-wrap:
-            wrap;
+        flex-wrap: wrap;
     }
     .ordered-delete {
-        margin-left:
-            0;
+        margin-left: 0;
     }
 }
