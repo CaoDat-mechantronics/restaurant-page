@@ -675,7 +675,7 @@ async function loadOrderedFoods() {
     try {
         const response =
             await fetch(
-                `${API_BASE_URL}/orders/table/${DEFAULT_TABLE_NUMBER}`,
+                `${API_BASE_URL}/menu/orders/table/${DEFAULT_TABLE_NUMBER}`,
                 {
                     method:
                         "GET",
@@ -1153,7 +1153,7 @@ async function updateOrderedQuantity(
     try {
         const response =
             await fetch(
-                `${API_BASE_URL}/order-items/${itemId}/quantity`,
+                `${API_BASE_URL}/menu/orders/table/${DEFAULT_TABLE_NUMBER}/items/${itemId}/quantity`,
                 {
                     method:
                         "PATCH",
@@ -1259,7 +1259,7 @@ async function deleteOrderedFood(
     try {
         const response =
             await fetch(
-                `${API_BASE_URL}/orders/table/${DEFAULT_TABLE_NUMBER}/items`,
+                `${API_BASE_URL}/menu/orders/table/${DEFAULT_TABLE_NUMBER}/items`,
                 {
                     method:
                         "PATCH",
@@ -1750,7 +1750,7 @@ function connectDashboardWebSocket() {
         return;
     }
     const wsUrl =
-        `${WS_BASE_URL}/ws/dashboard`;
+        `${WS_BASE_URL}/ws/menu/${DEFAULT_TABLE_NUMBER}`;
     console.log(
         "Connecting WebSocket:",
         wsUrl
